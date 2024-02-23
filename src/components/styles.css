@@ -1,3 +1,4 @@
+/* Alert Box CSS */
 .boxStyle {
   border: 2px solid #ccc;
   padding: 10px;
@@ -22,3 +23,63 @@
   color: red;
   font-weight: bold;
 }
+
+/* CSS for calculator */
+
+.calculator {
+  width: 300px;
+  margin: 0 auto;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.display {
+  background-color: #f9f9f9;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  padding: 5px;
+  margin-bottom: 10px;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: column;
+}
+
+.row {
+  display: flex;
+}
+
+button {
+  flex: 1;
+  padding: 10px;
+  margin: 5px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  background-color: #f0f0f0;
+}
+
+button:hover {
+  background-color: #e0e0e0;
+}
+
+.history {
+  display: flex;
+  margin-top: 20px;
+}
+
+.history h2 {
+  font-size: 16px;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  margin-bottom: 5px;
+}
+
+/*  */

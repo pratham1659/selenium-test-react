@@ -4,7 +4,8 @@ import ButtonComponent from "../components/ButtonComponent";
 import { Toaster, toast } from "react-hot-toast";
 import "./styles.css";
 import { Link } from "react-router-dom";
-import Home from "./Home";
+import Home from "../components/Home";
+import Calculator from "../components/Calculator";
 
 function MainPage() {
   const showMessage = (message) => {
@@ -39,7 +40,7 @@ function MainPage() {
             </li>
             <hr />
             <li>
-              <Link to="#calculator">CALCULATOR (JS)</Link>
+              <Link to="/calculator">CALCULATOR</Link>
             </li>
             <hr />
             <li>
@@ -108,7 +109,6 @@ function MainPage() {
           </ul>
         </div>
         <div style={centerBoxStyle}>
-          <h2>Center Box</h2>
           <Routes>
             <Route path="/" element={<Home />} />
             <Route
@@ -121,6 +121,8 @@ function MainPage() {
                 />
               }
             />
+
+            <Route path="/calculator" element={<Calculator />} />
           </Routes>
         </div>
       </div>
