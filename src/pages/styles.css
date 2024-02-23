@@ -1,0 +1,16 @@
+/* LeftBox styling here */
+.leftBoxStyle ul li a {
+  text-decoration: none !important;
+  color: #000;
+}
+
+.leftBoxStyle ul li a:hover {
+  color: #333;
+}
+
+.leftPara {
+  font-size: 10px;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  text-align: center;
+  font-weight: lighter;
+}
