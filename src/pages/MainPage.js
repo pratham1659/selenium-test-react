@@ -6,6 +6,7 @@ import "./styles.css";
 import { Link } from "react-router-dom";
 import Home from "../components/Home";
 import Calculator from "../components/Calculator";
+import Accordion from "../components/Accordian";
 
 function MainPage() {
   const showMessage = (message) => {
@@ -122,6 +123,7 @@ function MainPage() {
               }
             />
 
+            <Route path="/accordion" element={<Accordion />} />
             <Route path="/calculator" element={<Calculator />} />
           </Routes>
         </div>
@@ -139,14 +141,14 @@ const pageContainerStyle = {
 };
 
 const leftBoxStyle = {
-  border: "1px solid #ccc",
+  border: "2px solid #f56a6a",
   padding: "20px",
   marginLeft: "20px",
   width: "200px",
 };
 
 const centerBoxStyle = {
-  border: "1px solid #ccc",
+  border: "2px solid #f56a6a",
   padding: "10px",
   flex: "1",
   marginLeft: "20px",
