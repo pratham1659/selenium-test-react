@@ -33,12 +33,17 @@
 
 .headerStyle h2 {
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
-  color: #808990;
+  color: #200f07;
 }
 
 .headerStyle h3 {
   font-family: "Varela Round", sans-serif;
-  color: #a0a7ac;
+  color: #221a16;
+  font-weight: 500;
+}
+
+.headerStyle p {
+  font-family: Georgia, "Times New Roman", Times, serif;
 }
 
 /* CSS for Accordian */
@@ -137,4 +142,35 @@ li {
   margin-bottom: 5px;
 }
 
-/*  */
+/* Popup Alert */
+
+.popupContent {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.popupButtonsContainer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.popupButtonGroup {
+  flex: 1;
+  margin-right: 20px;
+}
+
+.popupButton {
+  padding: 10px;
+  background-color: white;
+  padding: 10px 20px;
+  color: black;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.popupButton:hover {
+  background-color: #f7f7f7;
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+}

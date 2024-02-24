@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 import Home from "../components/Home";
 import Calculator from "../components/Calculator";
 import Accordion from "../components/Accordian";
+import PopupAlert from "../components/PopupAlert";
 
 function MainPage() {
   const showMessage = (message) => {
@@ -85,7 +86,7 @@ function MainPage() {
             </li>
             <hr />
             <li>
-              <Link to="#popupsalerts">POP UPS & ALERTS</Link>
+              <Link to="/popupalerts">POP UPS & ALERTS</Link>
             </li>
             <hr />
             <li>
@@ -122,7 +123,7 @@ function MainPage() {
                 />
               }
             />
-
+            <Route path="/popupalerts" element={<PopupAlert />} />
             <Route path="/accordion" element={<Accordion />} />
             <Route path="/calculator" element={<Calculator />} />
           </Routes>
@@ -145,6 +146,7 @@ const leftBoxStyle = {
   padding: "20px",
   marginLeft: "20px",
   width: "200px",
+  boxShadow: "0 10px 20px rgba(0, 0, 0, 0.3)",
 };
 
 const centerBoxStyle = {
@@ -153,6 +155,7 @@ const centerBoxStyle = {
   flex: "1",
   marginLeft: "20px",
   marginRight: "20px",
+  boxShadow: "0 10px 20px rgba(0, 0, 0, 0.3)",
 };
 
 export default MainPage;
