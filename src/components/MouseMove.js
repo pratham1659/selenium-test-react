@@ -1,51 +1,62 @@
 import React, { useState } from "react";
-import "./styles.css"; // Import CSS file for styling
+import "./styles.css";
+import { Toaster, toast } from "react-hot-toast";
 
 const MouseMove = () => {
-  const [activeDropdown, setActiveDropdown] = useState(null);
+  const [isResponsive, setIsResponsive] = useState(false);
 
-  const handleDropdownToggle = (index) => {
-    setActiveDropdown(index === activeDropdown ? null : index);
+  const toggleResponsive = () => {
+    setIsResponsive((prevState) => !prevState);
   };
 
+  const handleClick = (link) => {
+    toast.success(`You clicked on ${link}`);
+  };
   return (
     <div className="headerStyle">
       <h1>MouseMovement Test</h1>
       <p>Here You can Test Your MouseMovement with this Navbar</p>
-      <nav className="navbar">
-        <ul className="navbar-list">
-          <li className="navbar-item">Home</li>
-          <li className={`navbar-item dropdown ${activeDropdown === 1 ? "active" : ""}`} onClick={() => handleDropdownToggle(1)}>
-            <span className="dropdown-btn">Topics</span>
-            <ul className={`dropdown-menu ${activeDropdown === 1 ? "show" : ""}`}>
-              <li className="dropdown-item">Politics</li>
-              <li className="dropdown-item">Technical</li>
-              <li className="dropdown-item">Literature</li>
-              <li className="dropdown-item">Science</li>
-              <li className="dropdown-item">Art</li>
-              <li className="dropdown-item">History</li>
-            </ul>
-          </li>
-          <li className={`navbar-item dropdown ${activeDropdown === 2 ? "active" : ""}`} onClick={() => handleDropdownToggle(2)}>
-            <span className="dropdown-btn">Services</span>
-            <ul className={`dropdown-menu ${activeDropdown === 2 ? "show" : ""}`}>
-              <li className="dropdown-item">Testing</li>
-              <li className="dropdown-item">Software Development</li>
-              <li className="dropdown-item">Cloud Computing</li>
-              <li className="dropdown-item">Cybersecurity</li>
-            </ul>
-          </li>
-          <li className={`navbar-item dropdown ${activeDropdown === 3 ? "active" : ""}`} onClick={() => handleDropdownToggle(3)}>
-            <span className="dropdown-btn">Resources</span>
-            <ul className={`dropdown-menu ${activeDropdown === 3 ? "show" : ""}`}>
-              <li className="dropdown-item">Tutorial Websites</li>
-              <li className="dropdown-item">Online Courses</li>
-              <li className="dropdown-item">Documentation</li>
-            </ul>
-          </li>
-          <li className="navbar-item">About</li>
-        </ul>
-      </nav>
+      <div className={`topnav ${isResponsive ? "responsive" : ""}`} id="myTopnav">
+        <a href="#home" onClick={() => handleClick("Home Section")} className="active">
+          Home
+        </a>
+        <div className="dropdown">
+          <button className="dropbtn">News</button>
+          <div className="dropdown-content">
+            <a href="#Link1" onClick={() => handleClick("Politics News")}>
+              Politics
+            </a>
+            <a href="#Link2" onClick={() => handleClick("Technology news")}>
+              Technology
+            </a>
+            <a href="#Link3" onClick={() => handleClick("Finance news")}>
+              Finance
+            </a>
+          </div>
+        </div>
+        <a href="#contact" onClick={() => handleClick("Contact Section")}>
+          Contact
+        </a>
+        <div className="dropdown">
+          <button className="dropbtn">Dropdown</button>
+          <div className="dropdown-content">
+            <a href="#Link1" onClick={() => handleClick("Link 1")}>
+              Link 1
+            </a>
+            <a href="#Link2" onClick={() => handleClick("Link 2")}>
+              Link 2
+            </a>
+            <a href="#Link3" onClick={() => handleClick("Link 3")}>
+              Link 3
+            </a>
+          </div>
+        </div>
+        <a href="#about">About</a>
+        <button className="icon" onClick={toggleResponsive}>
+          &#9776;
+        </button>
+      </div>
+      <Toaster position="top-right" reverseOrder={false} />
     </div>
   );
 };
