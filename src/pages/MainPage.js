@@ -11,6 +11,7 @@ import PopupAlert from "../components/PopupAlert";
 import FileUpload from "../components/FileUpload";
 import DragAction from "../components/DragAction";
 import BrowserTab from "../components/BrowserTab";
+import MouseMove from "../components/MouseMove";
 
 function MainPage() {
   const showMessage = (message) => {
@@ -118,6 +119,7 @@ function MainPage() {
             <Route path="/" element={<Home />} />
             <Route path="/actions" element={<DragAction />} />
             <Route path="/browsertabs" element={<BrowserTab />} />
+            <Route path="mousemovement" element={<MouseMove />} />
             <Route
               path="/buttons"
               element={

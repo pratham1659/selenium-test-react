@@ -250,7 +250,7 @@ p {
   background-color: #f5abb3;
 }
 
-/* Double Click Box --------------------------------------*/
+/* Double Click Box ---------------------------------*/
 
 .double-click-box {
   width: 200px;
@@ -263,7 +263,7 @@ p {
   cursor: pointer;
 }
 
-/* Shift Click Box --------------------------------------------- */
+/* Shift Click Box ----------------------------------- */
 .hold-shift-click-box {
   width: 200px;
   height: 100px;
@@ -274,3 +274,61 @@ p {
   border: 2px solid black;
   cursor: pointer;
 }
+
+/* Mouse Move Elements --------------------------------------------------------------------------- */
+
+.navbar {
+  background-color: #504d4d;
+  color: white;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 20px;
+}
+
+.navbar-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+}
+
+.navbar-item {
+  margin-right: 20px;
+  position: relative;
+  transition: color 0.3s;
+  cursor: pointer; /* Add cursor property */
+}
+.dropdown-btn {
+  cursor: pointer;
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  background-color: #444;
+  padding: 10px;
+  top: calc(100% + 10px);
+  left: 0;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.dropdown-item {
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.navbar-item:hover,
+.dropdown-item:hover {
+  color: #ffc107; /* Change color on hover */
+}
+
+.navbar-item:hover .dropdown-menu {
+  display: block;
+}
+
+.dropdown-item:hover {
+  background-color: #555; /* Change background color on hover */
+}
+
+/* links ----------------------------------------------------------------------*/
