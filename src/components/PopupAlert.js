@@ -22,12 +22,18 @@ const PopupAlert = () => {
             <button className="popupButton" onClick={() => openPopup()}>
               Trigger Popup
             </button>
+            <button className="popupButton" onClick={() => openPopup()}>
+              Trigger Popup
+            </button>
           </div>
           <div className="popupButtonGroup">
             <h2>Alert Testing</h2>
             <p>Press the button below to trigger the alert event. Then try to instruct your automation test to close the alert:</p>
             <button className="popupButton" onClick={() => alert("Alert Button clicked!")}>
               Trigger Alert
+            </button>
+            <button className="popupButton" onClick={() => alert("Alert dismissed!")} aria-label="Close alert" type="button" data-close>
+              Dismiss Alert
             </button>
           </div>
         </div>

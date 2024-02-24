@@ -8,6 +8,7 @@ import Home from "../components/Home";
 import Calculator from "../components/Calculator";
 import Accordion from "../components/Accordian";
 import PopupAlert from "../components/PopupAlert";
+import FileUpload from "../components/FileUpload";
 
 function MainPage() {
   const showMessage = (message) => {
@@ -46,43 +47,43 @@ function MainPage() {
             </li>
             <hr />
             <li>
-              <Link to="#contactus">CONTACT US FORM TEST</Link>
+              <Link to="/contactus">CONTACT US FORM TEST</Link>
             </li>
             <hr />
             <li>
-              <Link to="#datepicker">DATE PICKER</Link>
+              <Link to="/datepicker">DATE PICKER</Link>
             </li>
             <hr />
             <li>
-              <Link to="#dropdown">DROPDOWN CHECKBOX RADIO</Link>
+              <Link to="/dropdown">DROPDOWN CHECKBOX RADIO</Link>
             </li>
             <hr />
             <li>
-              <Link to="#fileupload">FILE UPLOAD</Link>
+              <Link to="/fileupload">FILE UPLOAD</Link>
             </li>
             <hr />
             <li>
-              <Link to="#hiddenelements">HIDDEN ELEMENTS</Link>
+              <Link to="/hiddenelements">HIDDEN ELEMENTS</Link>
             </li>
             <hr />
             <li>
-              <Link to="#iframes">IFRAMES</Link>
+              <Link to="/iframes">IFRAMES</Link>
             </li>
             <hr />
             <li>
-              <Link to="#loader">LOADER</Link>
+              <Link to="/loader">LOADER</Link>
             </li>
             <hr />
             <li>
-              <Link to="#loadertwo">LOADER TWO</Link>
+              <Link to="/loadertwo">LOADER TWO</Link>
             </li>
             <hr />
             <li>
-              <Link to="#loginportal">LOGIN PORTAL TEST</Link>
+              <Link to="/loginportal">LOGIN PORTAL TEST</Link>
             </li>
             <hr />
             <li>
-              <Link to="#mousemovement">MOUSE MOVEMENT</Link>
+              <Link to="/mousemovement">MOUSE MOVEMENT</Link>
             </li>
             <hr />
             <li>
@@ -90,19 +91,19 @@ function MainPage() {
             </li>
             <hr />
             <li>
-              <Link to="#predictivesearch">PREDICTIVE SEARCH</Link>
+              <Link to="/predictivesearch">PREDICTIVE SEARCH</Link>
             </li>
             <hr />
             <li>
-              <Link to="#tables">TABLES</Link>
+              <Link to="/tables">TABLES</Link>
             </li>
             <hr />
             <li>
-              <Link to="#teststore">TEST STORE</Link>
+              <Link to="/teststore">TEST STORE</Link>
             </li>
             <hr />
             <li>
-              <Link to="#aboutme">ABOUT ME</Link>
+              <Link to="/aboutme">ABOUT ME</Link>
             </li>
             <hr />
             <li>
@@ -123,6 +124,7 @@ function MainPage() {
                 />
               }
             />
+            <Route path="/fileupload" element={<FileUpload />} />
             <Route path="/popupalerts" element={<PopupAlert />} />
             <Route path="/accordion" element={<Accordion />} />
             <Route path="/calculator" element={<Calculator />} />
