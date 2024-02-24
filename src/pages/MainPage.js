@@ -9,6 +9,8 @@ import Calculator from "../components/Calculator";
 import Accordion from "../components/Accordian";
 import PopupAlert from "../components/PopupAlert";
 import FileUpload from "../components/FileUpload";
+import DragAction from "../components/DragAction";
+import BrowserTab from "../components/BrowserTab";
 
 function MainPage() {
   const showMessage = (message) => {
@@ -114,6 +116,8 @@ function MainPage() {
         <div style={centerBoxStyle}>
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="/actions" element={<DragAction />} />
+            <Route path="/browsertabs" element={<BrowserTab />} />
             <Route
               path="/buttons"
               element={
