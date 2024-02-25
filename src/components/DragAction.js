@@ -87,12 +87,12 @@ const DragAction = () => {
             <h2>Drag & Drop Test</h2>
             <p>Drag the p element back and forth between the two rectangles:</p>
             <div className="container">
-              <div className="box" onDragOver={handleDragOver} onDrop={handleDrop}>
+              <div className="box" name="box1" onDragOver={handleDragOver} onDrop={handleDrop}>
                 <p id="dragElement1" draggable onDragStart={handleDragStart}>
                   Drag me(A)
                 </p>
               </div>
-              <div className="box" onDragOver={handleDragOver} onDrop={handleDrop}>
+              <div className="box" name="box2" onDragOver={handleDragOver} onDrop={handleDrop}>
                 <p id="dragElement2" draggable onDragStart={handleDragStart}>
                   Drag me(B)
                 </p>
