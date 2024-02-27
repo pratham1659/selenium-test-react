@@ -36,6 +36,4 @@ export const fields = [
   { name: "Movie", subMenu: ["Action", "Comedy", "Drama", "Horror"] },
   { name: "Technology", subMenu: ["Programming", "AI", "Blockchain", "IoT"] },
   { name: "Food", subMenu: ["Pizza", "Burger", "Sushi", "Tacos"] },
-  { name: "Music", subMenu: ["Rock", "Pop", "Hip Hop", "Jazz"] },
-  { name: "Science", subMenu: ["Physics", "Chemistry", "Biology", "Astronomy"] },
 ];

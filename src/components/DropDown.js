@@ -149,10 +149,6 @@ const DropDown = () => {
               <h2>Demo Box</h2>
               <p>Demo Para</p>
             </div>
-            <div className="actionButtonGroup">
-              <h2>Demo Box</h2>
-              <p>Demo Para</p>
-            </div>
           </div>
         </div>
         <Toaster position="top-right" reverseOrder={false} />

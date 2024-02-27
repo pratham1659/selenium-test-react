@@ -129,6 +129,10 @@ button.enabled {
   font-size: 2em;
 }
 
+.container {
+  justify-content: center;
+}
+
 .row {
   display: flex;
 }
@@ -145,7 +149,9 @@ button {
 button:hover {
   background-color: #e0e0e0;
 }
-
+.double-click-box {
+  justify-content: center;
+}
 .history {
   display: flex;
   margin-top: 20px;
