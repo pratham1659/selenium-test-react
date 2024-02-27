@@ -16,29 +16,15 @@ export const faqs = [
   },
 ];
 
-export const menuItemsData = [
-  // ...
-  {
-    title: "Web Development",
-    url: "web-dev",
-    submenu: [
-      {
-        title: "Frontend",
-        url: "frontend",
-      },
-      {
-        title: "Backend",
-        submenu: [
-          {
-            title: "NodeJS",
-            url: "node",
-          },
-          {
-            title: "PHP",
-            url: "php",
-          },
-        ],
-      },
-    ],
-  },
+export const studentData = [
+  { id: 1, name: "John Doe", age: 20, grade: "A" },
+  { id: 2, name: "Jane Smith", age: 22, grade: "B" },
+  { id: 3, name: "David Johnson", age: 21, grade: "C" },
+  { id: 4, name: "Emily Brown", age: 19, grade: "A" },
+  { id: 5, name: "Michael Lee", age: 23, grade: "B" },
+  { id: 6, name: "Sarah Jones", age: 20, grade: "A" },
+  { id: 7, name: "Daniel Wilson", age: 22, grade: "C" },
+  { id: 8, name: "Olivia Taylor", age: 21, grade: "B" },
+  { id: 9, name: "Matthew White", age: 19, grade: "A" },
+  { id: 10, name: "Sophia Martinez", age: 20, grade: "C" },
 ];

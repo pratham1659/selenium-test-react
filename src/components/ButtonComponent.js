@@ -1,10 +1,9 @@
 import React from "react";
 import "./styles.css";
 
-function ButtonComponent({ onClick, onRadioChange, onCheckboxChange }) {
+function ButtonComponent({ onRadioChange, onCheckboxChange }) {
   return (
     <div className="btn-list">
-      <button onClick={onClick}>Click me</button>
       <div>
         <input type="radio" id="radioButton" name="radioButton" onChange={onRadioChange} />
         <label htmlFor="radioButton">Radio Button</label>

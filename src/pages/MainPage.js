@@ -1,7 +1,5 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
-import ButtonComponent from "../components/ButtonComponent";
-import { Toaster, toast } from "react-hot-toast";
 import "./styles.css";
 import { Link } from "react-router-dom";
 import Home from "../components/Home";
@@ -12,12 +10,10 @@ import FileUpload from "../components/FileUpload";
 import DragAction from "../components/DragAction";
 import BrowserTab from "../components/BrowserTab";
 import MouseMove from "../components/MouseMove";
+import Buttons from "../components/Buttons";
+import Table from "../components/Table";
 
 function MainPage() {
-  const showMessage = (message) => {
-    toast.success(message);
-  };
-
   return (
     <div className="App">
       <h1 className="header">Automation Testing Site</h1>
@@ -119,17 +115,9 @@ function MainPage() {
             <Route path="/" element={<Home />} />
             <Route path="/actions" element={<DragAction />} />
             <Route path="/browsertabs" element={<BrowserTab />} />
-            <Route path="mousemovement" element={<MouseMove />} />
-            <Route
-              path="/buttons"
-              element={
-                <ButtonComponent
-                  onClick={() => showMessage("Button clicked!")}
-                  onRadioChange={() => showMessage("Radio button selected!")}
-                  onCheckboxChange={() => showMessage("Checkbox selected!")}
-                />
-              }
-            />
+            <Route path="/mousemovement" element={<MouseMove />} />
+            <Route path="/buttons" element={<Buttons />} />
+            <Route path="/tables" element={<Table />} />
             <Route path="/fileupload" element={<FileUpload />} />
             <Route path="/popupalerts" element={<PopupAlert />} />
             <Route path="/accordion" element={<Accordion />} />
@@ -137,7 +125,6 @@ function MainPage() {
           </Routes>
         </div>
       </div>
-      <Toaster position="top-right" reverseOrder={false} />
     </div>
   );
 }
