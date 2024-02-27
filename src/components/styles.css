@@ -445,14 +445,14 @@ input[type="radio"] {
 }
 
 /* Style for label */
-label {
+.label {
   display: block;
   margin-bottom: 5px;
   cursor: pointer;
 }
 
 /* Hover effect for label */
-label:hover {
+.label:hover {
   border: 1px solid #333;
 }
 
@@ -533,4 +533,58 @@ input[type="radio"]:checked + label {
 
 .headerMenu li:hover .subMenu {
   display: block;
+}
+
+/* Date Picker CSS --------------------------------------------------------------------------- */
+
+.actionsContainer {
+  display: flex;
+  justify-content: center;
+}
+
+.headerStyle {
+  text-align: center;
+}
+.date-label {
+  display: block;
+  margin-bottom: 5px;
+  cursor: pointer;
+}
+
+.popupButtonsContainer {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px;
+}
+
+.actionButtonGroup {
+  width: 40%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.actionButtonGroup h2 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.date-label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+input[type="datetime-local"],
+input[type="date"],
+input[type="time"] {
+  width: 80%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.date-para {
+  margin-top: 10px;
+  font-size: 10px;
 }

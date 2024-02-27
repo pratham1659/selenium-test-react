@@ -13,6 +13,7 @@ import MouseMove from "../components/MouseMove";
 import Buttons from "../components/Buttons";
 import Table from "../components/Table";
 import DropDown from "../components/DropDown";
+import DatePicker from "../components/DatePicker";
 
 function MainPage() {
   return (
@@ -120,6 +121,7 @@ function MainPage() {
             <Route path="/buttons" element={<Buttons />} />
             <Route path="/dropdown" element={<DropDown />} />
             <Route path="/tables" element={<Table />} />
+            <Route path="/datepicker" element={<DatePicker />} />
             <Route path="/fileupload" element={<FileUpload />} />
             <Route path="/popupalerts" element={<PopupAlert />} />
             <Route path="/accordion" element={<Accordion />} />

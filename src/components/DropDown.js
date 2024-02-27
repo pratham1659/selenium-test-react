@@ -71,19 +71,19 @@ const DropDown = () => {
               <div>
                 <p>Select an Option</p>
                 <div>
-                  <label>
+                  <label className="label">
                     <input type="radio" value="option1" checked={selectedOption === "option 1"} onChange={handleOptionChange} />
                     Option 1
                   </label>
                 </div>
                 <div>
-                  <label>
+                  <label className="label">
                     <input type="radio" value="option2" checked={selectedOption === "option 2"} onChange={handleOptionChange} />
                     Option 2
                   </label>
                 </div>
                 <div>
-                  <label>
+                  <label className="label">
                     <input type="radio" value="option3" checked={selectedOption === "option 3"} onChange={handleOptionChange} />
                     Option 3
                   </label>
