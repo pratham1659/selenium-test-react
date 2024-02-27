@@ -28,3 +28,14 @@ export const studentData = [
   { id: 9, name: "Matthew White", age: 19, grade: "A" },
   { id: 10, name: "Sophia Martinez", age: 20, grade: "C" },
 ];
+
+export const fields = [
+  { name: "Animal", subMenu: ["Tiger", "Fox", "Dog", "Cat"] },
+  { name: "Sports", subMenu: ["Football", "Basketball", "Tennis", "Cricket"] },
+  { name: "Cartoon", subMenu: ["Mickey Mouse", "Tom & Jerry", "SpongeBob", "Pokemon"] },
+  { name: "Movie", subMenu: ["Action", "Comedy", "Drama", "Horror"] },
+  { name: "Technology", subMenu: ["Programming", "AI", "Blockchain", "IoT"] },
+  { name: "Food", subMenu: ["Pizza", "Burger", "Sushi", "Tacos"] },
+  { name: "Music", subMenu: ["Rock", "Pop", "Hip Hop", "Jazz"] },
+  { name: "Science", subMenu: ["Physics", "Chemistry", "Biology", "Astronomy"] },
+];

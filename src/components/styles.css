@@ -438,4 +438,99 @@ p {
   background-color: #ddd;
 }
 
-/* links ----------------------------------------------------------------------*/
+/* DropDown Radio CSS ----------------------------------------------------------------------*/
+
+input[type="radio"] {
+  margin-right: 5px;
+}
+
+/* Style for label */
+label {
+  display: block;
+  margin-bottom: 5px;
+  cursor: pointer;
+}
+
+/* Hover effect for label */
+label:hover {
+  border: 1px solid #333;
+}
+
+/* Style for checked radio button */
+input[type="radio"]:checked + label {
+  font-weight: bold;
+}
+
+/*DropDown Checkbox CSS ------------------------------------------------------------------------- */
+.checkboxContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.checkboxLabel {
+  display: block;
+  margin-bottom: 5px;
+  cursor: pointer;
+}
+
+.checkboxLabel:hover {
+  border: 1px solid #333;
+}
+
+/* DropDown Menu CSS --------------------------------------------------------------------------------*/
+.selectContainer {
+  position: relative;
+  width: 200px; /* Adjust width as needed */
+}
+
+.selectContainer select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  outline: none;
+  cursor: pointer;
+  transition: border-color 0.3s ease;
+}
+
+.selectContainer select:hover {
+  border-color: #999;
+}
+
+.option:hover {
+  background-color: #f0f0f0;
+}
+
+/* Navigation CSS ------------------------------------------------------------------------------*/
+/* NavigationMenu.css */
+
+.headerMenu {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.headerMenu li {
+  position: relative;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.headerMenu li:hover {
+  background-color: #f0f0f0;
+}
+
+.subMenu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #fff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  padding: 10px;
+  display: none;
+}
+
+.headerMenu li:hover .subMenu {
+  display: block;
+}

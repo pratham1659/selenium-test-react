@@ -12,6 +12,7 @@ import BrowserTab from "../components/BrowserTab";
 import MouseMove from "../components/MouseMove";
 import Buttons from "../components/Buttons";
 import Table from "../components/Table";
+import DropDown from "../components/DropDown";
 
 function MainPage() {
   return (
@@ -117,6 +118,7 @@ function MainPage() {
             <Route path="/browsertabs" element={<BrowserTab />} />
             <Route path="/mousemovement" element={<MouseMove />} />
             <Route path="/buttons" element={<Buttons />} />
+            <Route path="/dropdown" element={<DropDown />} />
             <Route path="/tables" element={<Table />} />
             <Route path="/fileupload" element={<FileUpload />} />
             <Route path="/popupalerts" element={<PopupAlert />} />
