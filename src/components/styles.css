@@ -592,5 +592,6 @@ input[type="time"] {
 
 .date-para {
   margin-top: 10px;
-  font-size: 10px;
+  font-size: 12px;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
 }
