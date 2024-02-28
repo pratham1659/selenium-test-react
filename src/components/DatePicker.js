@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 
 const DatePicker = () => {
-  const [selectedDate, setSelectedDate] = useState(new Date());
+  // const [selectedDate, setSelectedDate] = useState(new Date());
+  const [selectedDateTime, setSelectedDateTime] = useState("");
   const [startDate, setStartDate] = useState("");
   const [endDate, setEndDate] = useState("");
 
-  const handleDateChange = (event) => {
-    const newDate = new Date(event.target.value);
-    setSelectedDate(newDate);
+  const handleDateTimeChange = (event) => {
+    setSelectedDateTime(event.target.value);
   };
 
   const handleStartDateChange = (event) => {
@@ -18,9 +18,13 @@ const DatePicker = () => {
     setEndDate(event.target.value);
   };
 
-  const formatDate = (date) => {
-    const options = { weekday: "long", year: "numeric", month: "long", day: "numeric", hour: "numeric", minute: "numeric" };
-    return date.toLocaleDateString("en-US", options);
+  const formatDate = (dateTimeString) => {
+    if (!dateTimeString) return ""; // handle empty string case
+    const date = new Date(dateTimeString);
+    if (isNaN(date.getTime())) {
+      return "Invalid Date";
+    }
+    return date.toLocaleDateString() + " " + date.toLocaleTimeString();
   };
 
   const [selectedTime, setSelectedTime] = useState("");
@@ -38,8 +42,8 @@ const DatePicker = () => {
           <div className="actionButtonGroup">
             <h2>Basic Date Select()</h2>
             <div>
-              <input type="datetime-local" value={selectedDate.toISOString().slice(0, 16)} onChange={handleDateChange} />
-              <p className="date-para">{formatDate(selectedDate)}</p>
+              <input className="datetime-para" type="datetime-local" value={selectedDateTime} onChange={handleDateTimeChange} />
+              <p className="date-para">{formatDate(selectedDateTime)}</p>
             </div>
           </div>
           <div className="actionButtonGroup">
