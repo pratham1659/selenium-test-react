@@ -113,15 +113,19 @@ const DragAction = () => {
           <div className="actionButtonGroup">
             <h2>Mouse Double Click Test</h2>
             <p>Double-click this area below to trigger a function:</p>
-            <div className={`double-click-box ${isGreen ? "green-bg" : ""}`} onDoubleClick={handleDoubleClick}>
-              {doubleClickMessage}
+            <div className="outer-container">
+              <div className={`double-click-box ${isGreen ? "green-bg" : ""}`} onDoubleClick={handleDoubleClick}>
+                {doubleClickMessage}
+              </div>
             </div>
           </div>
           <div className="actionButtonGroup">
             <h2>Shift + Mouse Hold Test</h2>
             <p>Click the button below while holding the shift key:</p>
-            <div className={`hold-shift-click-box ${isRed ? "red-bg" : ""}`} onMouseDown={handleClickDown} onMouseUp={handleClickUp}>
-              {shiftClickMessage}
+            <div className="outer-container">
+              <div className={`hold-shift-click-box ${isRed ? "red-bg" : ""}`} onMouseDown={handleClickDown} onMouseUp={handleClickUp}>
+                {shiftClickMessage}
+              </div>
             </div>
           </div>
         </div>

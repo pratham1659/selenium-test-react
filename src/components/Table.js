@@ -33,7 +33,6 @@ const Table = () => {
           <thead>
             <tr>
               <th onClick={handleIdHeaderClick}>
-                ID
                 <input type="checkbox" />
               </th>
               <th>Name</th>

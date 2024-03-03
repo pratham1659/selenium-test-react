@@ -14,6 +14,8 @@ import Buttons from "../components/Buttons";
 import Table from "../components/Table";
 import DropDown from "../components/DropDown";
 import DatePicker from "../components/DatePicker";
+import ContactUs from "../components/ContactUs";
+import LoginForm from "../components/LoginForm";
 
 function MainPage() {
   return (
@@ -126,6 +128,8 @@ function MainPage() {
             <Route path="/popupalerts" element={<PopupAlert />} />
             <Route path="/accordion" element={<Accordion />} />
             <Route path="/calculator" element={<Calculator />} />
+            <Route path="/contactus" element={<ContactUs />} />
+            <Route path="loginportal" element={<LoginForm />} />
           </Routes>
         </div>
       </div>
