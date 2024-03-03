@@ -61,7 +61,7 @@ function Buttons({ onClick, onRadioChange, onCheckboxChange }) {
         <div className="popupButtonsContainer">
           <div className="actionButtonGroup">
             <h2>Disabled Button</h2>
-            <ul style={{ listStyleType: "disc" }}>
+            <ul className="custom-list">
               <li>Try interacting with the button below</li>
               <li>Use an locator of your choice</li>
               <li>

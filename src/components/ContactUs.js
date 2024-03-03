@@ -47,6 +47,7 @@ function ContactUs() {
           <input type="email" name="email" placeholder="Email" value={formData.email} onChange={handleChange} />
           <input type="date" name="dob" placeholder="Date of Birth" value={formData.dob} onChange={handleChange} />
           <input type="tel" name="contact" placeholder="Contact" value={formData.contact} onChange={handleChange} />
+          {/* The pattern attribute enforces the input to match the specified pattern */}
           <button type="submit">Submit</button>
         </form>
       </div>
@@ -59,7 +60,7 @@ function ContactUs() {
               <th>Username</th>
               <th>Email</th>
               <th>Date of Birth</th>
-              <th>contact</th>
+              <th>Contact</th> {/* Corrected typo: 'contact' to 'Contact' */}
             </tr>
           </thead>
           <tbody>

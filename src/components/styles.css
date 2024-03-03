@@ -166,6 +166,12 @@ ul {
   padding: 0;
 }
 
+.custom-list {
+  list-style-type: disc;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
 li {
   margin-bottom: 5px;
 }
