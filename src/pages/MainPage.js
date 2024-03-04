@@ -1,7 +1,6 @@
-import React from "react";
-import { Routes, Route } from "react-router-dom";
+import React, { useState } from "react";
 import "./styles.css";
-import { Link } from "react-router-dom";
+import { Link, Routes, Route } from "react-router-dom";
 import Home from "../components/Home";
 import Calculator from "../components/Calculator";
 import Accordion from "../components/Accordian";
@@ -16,8 +15,10 @@ import DropDown from "../components/DropDown";
 import DatePicker from "../components/DatePicker";
 import ContactUs from "../components/ContactUs";
 import LoginForm from "../components/LoginForm";
+import LogoutPage from "../components/LogoutPage";
 
 function MainPage() {
+  const [loggedInUser, setLoggedInUser] = useState(null);
   return (
     <div className="App">
       <h1 className="header">Automation Testing Site</h1>
@@ -129,7 +130,8 @@ function MainPage() {
             <Route path="/accordion" element={<Accordion />} />
             <Route path="/calculator" element={<Calculator />} />
             <Route path="/contactus" element={<ContactUs />} />
-            <Route path="loginportal" element={<LoginForm />} />
+            <Route path="/loginportal" element={<LoginForm setLoggedInUser={setLoggedInUser} />} />
+            <Route path="/logout" element={<LogoutPage loggedInUser={loggedInUser} />} />
           </Routes>
         </div>
       </div>

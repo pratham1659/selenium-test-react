@@ -1,12 +1,15 @@
 import React, { useState } from "react";
+import { Navigate } from "react-router-dom";
 import { Toaster, toast } from "react-hot-toast";
 import "./styles.css";
 
-function LoginForm() {
+function LoginForm({ setLoggedInUser }) {
   const [formData, setFormData] = useState({
     username: "",
     password: "",
     rememberMe: false,
+    loggedInUser: null,
+    redirectToLogout: false,
   });
 
   const handleChange = (e) => {
@@ -21,11 +24,23 @@ function LoginForm() {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (formData.username && formData.password) {
-      toast.success("Login successful!");
+      if (formData.rememberMe) {
+        setLoggedInUser(formData.username);
+        setFormData((prevState) => ({
+          ...prevState,
+          loggedInUser: formData.username,
+          redirectToLogout: true,
+        }));
+        toast.success("Login successful!");
+      }
     } else {
       toast.error("Please enter both username and password.");
     }
   };
+
+  if (formData.redirectToLogout) {
+    return <Navigate to="/logout" />;
+  }
 
   return (
     <div className="login-form">
@@ -37,8 +52,11 @@ function LoginForm() {
           <input type="checkbox" name="rememberMe" checked={formData.rememberMe} onChange={handleChange} />
           Remember me
         </label>
-        <button type="submit">Login</button>
+        <button type="submit" disabled={!formData.username || !formData.password}>
+          Login
+        </button>
       </form>
+      {formData.loggedInUser && <p>Logged in as: {formData.loggedInUser}</p>}
       <Toaster position="top-right" reverseOrder={false} />
     </div>
   );
