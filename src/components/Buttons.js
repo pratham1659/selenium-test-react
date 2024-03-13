@@ -4,11 +4,28 @@ import "./styles.css"; // Assuming you have a CSS file for styling
 
 function Buttons({ onClick, onRadioChange, onCheckboxChange }) {
   const [buttonDisabled, setButtonDisabled] = useState(true);
+  const [buttonDisabledCheckBox, setButtonDisabledCheckBox] = useState(true);
+
+  const handleButtonClick = () => {
+    if (!buttonDisabled) {
+      toast.success("Button Enabled");
+    } else {
+      toast.success("Disabled Button Click Found!");
+    }
+  };
+
+  const enableButton = () => {
+    if (!buttonDisabled) {
+      toast.success("Cannot enable button internally!");
+    } else {
+      setButtonDisabled(false);
+    }
+  };
 
   const handleCheckboxChange = () => {
-    setButtonDisabled(true); // Disable the button when checkbox is clicked
+    setButtonDisabledCheckBox(true); // Disable the button when checkbox is clicked
     setTimeout(() => {
-      setButtonDisabled(false); // Enable the button after 5 seconds
+      setButtonDisabledCheckBox(false); // Enable the button after 5 seconds
       toast.success("Button Enabled");
     }, 3000); // 5000 milliseconds = 5 seconds
   };
@@ -68,9 +85,10 @@ function Buttons({ onClick, onRadioChange, onCheckboxChange }) {
                 Try method: <strong>isEnabled()</strong>
               </li>
             </ul>
-            <button onClick={() => showMessage("Button Enabled")} disabled>
-              Disabled Button
+            <button onClick={handleButtonClick} disabled={buttonDisabled}>
+              Disabled button
             </button>
+            <button onClick={enableButton}>Enable Button</button>
           </div>
           <div className="actionButtonGroup">
             <h2>Double Click Button</h2>
@@ -97,8 +115,8 @@ function Buttons({ onClick, onRadioChange, onCheckboxChange }) {
               <li>Note: When User click on checkbox after 5 seconds button will enabled</li>
             </ul>
             <button
-              className={buttonDisabled ? "disabled" : "enabled"}
-              disabled={buttonDisabled}
+              className={buttonDisabledCheckBox ? "disabled" : "enabled"}
+              disabled={buttonDisabledCheckBox}
               onClick={() => showMessage("Disabled Button Click Found!")}>
               Disabled button
             </button>
