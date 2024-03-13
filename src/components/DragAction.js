@@ -24,17 +24,6 @@ const DragAction = () => {
     e.preventDefault();
   };
 
-  const handleDoubleClick = () => {
-    setdoubleClickMessage("Well done");
-    setIsGreen(true);
-
-    // Reset the message and color after 1 second
-    setTimeout(() => {
-      setdoubleClickMessage("Double click here");
-      setIsGreen(false);
-    }, 2000);
-  };
-
   const handleDrop = (e) => {
     e.preventDefault();
     const id = e.dataTransfer.getData("text/plain");
@@ -58,6 +47,17 @@ const DragAction = () => {
     setIsMouseDown(false);
   };
 
+  const handleDoubleClick = () => {
+    setdoubleClickMessage("Well done");
+    setIsGreen(true);
+
+    // Reset the message and color after 1 second
+    setTimeout(() => {
+      setdoubleClickMessage("Double click here");
+      setIsGreen(false);
+    }, 5000);
+  };
+
   const handleClickDown = (e) => {
     if (e.shiftKey) {
       setshiftClickMessage("Well done");
@@ -70,7 +70,7 @@ const DragAction = () => {
     setTimeout(() => {
       setshiftClickMessage("Shift + Mouse Hold");
       setIsRed(false);
-    }, 2000);
+    }, 5000);
   };
 
   const handleClickUp = () => {
@@ -123,7 +123,10 @@ const DragAction = () => {
             <h2>Shift + Mouse Hold Test</h2>
             <p>Click the button below while holding the shift key:</p>
             <div className="outer-container">
-              <div className={`hold-shift-click-box ${isRed ? "red-bg" : ""}`} onMouseDown={handleClickDown} onMouseUp={handleClickUp}>
+              <div
+                className={`hold-shift-click-box ${isRed ? "red-bg" : "green-bg"}`}
+                onMouseDown={handleClickDown}
+                onMouseUp={handleClickUp}>
                 {shiftClickMessage}
               </div>
             </div>
