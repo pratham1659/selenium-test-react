@@ -96,7 +96,10 @@ function Buttons({ onClick, onRadioChange, onCheckboxChange }) {
               </li>
               <li>Note: When User click on checkbox after 5 seconds button will enabled</li>
             </ul>
-            <button className={buttonDisabled ? "disabled" : "enabled"} disabled={buttonDisabled}>
+            <button
+              className={buttonDisabled ? "disabled" : "enabled"}
+              disabled={buttonDisabled}
+              onClick={() => showMessage("Disabled Button Click Found!")}>
               Disabled button
             </button>
           </div>
