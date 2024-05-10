@@ -717,3 +717,15 @@ input[type="time"] {
 .login-form button:hover {
   background-color: #45a049;
 }
+
+/* iFrame Css  --------------------------------------------------------*/
+.iframe-container {
+  width: 100%; /* Set your desired width */
+  height: 470px; /* Set your desired height */
+  overflow: hidden; /* Prevent content overflow */
+}
+.frame-iframe {
+  width: 100%;
+  height: 90%;
+  border: 1px solid #ccc;
+}

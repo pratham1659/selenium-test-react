@@ -16,6 +16,7 @@ import DatePicker from "../components/DatePicker";
 import ContactUs from "../components/ContactUs";
 import LoginForm from "../components/LoginForm";
 import LogoutPage from "../components/LogoutPage";
+import Frame from "../components/Frame";
 
 function MainPage() {
   const [loggedInUser, setLoggedInUser] = useState(null);
@@ -126,6 +127,7 @@ function MainPage() {
             <Route path="/tables" element={<Table />} />
             <Route path="/datepicker" element={<DatePicker />} />
             <Route path="/fileupload" element={<FileUpload />} />
+            <Route path="/iframes" element={<Frame />} />
             <Route path="/popupalerts" element={<PopupAlert />} />
             <Route path="/accordion" element={<Accordion />} />
             <Route path="/calculator" element={<Calculator />} />
