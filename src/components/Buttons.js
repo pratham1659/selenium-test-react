@@ -40,7 +40,7 @@ function Buttons({ onClick, onRadioChange, onCheckboxChange }) {
         <h1>Testing Buttons</h1>
         <p>Attempt to click the buttons using the instructions for each button below. There are various ways you can click buttons.</p>
         <div className="popupButtonsContainer">
-          <div className="actionButtonGroup">
+          <div className="actionButtonGroup actionButton">
             <h2>WebElement.click()</h2>
             <ul style={{ listStyleType: "disc" }}>
               <li>Try interacting with the button below</li>
@@ -51,7 +51,7 @@ function Buttons({ onClick, onRadioChange, onCheckboxChange }) {
             </ul>
             <button onClick={() => showMessage("Button clicked!")}>Button Click</button>
           </div>
-          <div className="actionButtonGroup">
+          <div className="actionButtonGroup actionButton">
             <h2>JavaScript click</h2>
             <ul style={{ listStyleType: "disc" }}>
               <li>Try interacting with the button below</li>
@@ -63,7 +63,7 @@ function Buttons({ onClick, onRadioChange, onCheckboxChange }) {
             </ul>
             <button onClick={() => showMessage("Button JS clicked!")}>Button JS Click</button>
           </div>
-          <div className="actionButtonGroup">
+          <div className="actionButtonGroup actionButton">
             <h2>Action Move & Click</h2>
             <ul style={{ listStyleType: "disc" }}>
               <li>Try interacting with the button below</li>
@@ -76,7 +76,7 @@ function Buttons({ onClick, onRadioChange, onCheckboxChange }) {
           </div>
         </div>
         <div className="popupButtonsContainer">
-          <div className="actionButtonGroup">
+          <div className="actionButtonGroup actionButton">
             <h2>Disabled Button</h2>
             <ul className="custom-list">
               <li>Try interacting with the button below</li>
@@ -90,7 +90,7 @@ function Buttons({ onClick, onRadioChange, onCheckboxChange }) {
             </button>
             <button onClick={enableButton}>Enable Button</button>
           </div>
-          <div className="actionButtonGroup">
+          <div className="actionButtonGroup actionButton">
             <h2>Double Click Button</h2>
             <ul style={{ listStyleType: "disc" }}>
               <li>Try interacting with the button below</li>
@@ -101,7 +101,7 @@ function Buttons({ onClick, onRadioChange, onCheckboxChange }) {
             </ul>
             <button onDoubleClick={() => showMessage("Double Click Found!")}>Double Click Button</button>
           </div>
-          <div className="actionButtonGroup">
+          <div className="actionButtonGroup actionButton">
             <h2>Disabled Button</h2>
             <ul style={{ listStyleType: "disc" }}>
               <li>Try interacting with the button below</li>
