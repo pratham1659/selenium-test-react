@@ -197,7 +197,7 @@ function Buttons({ onClick, onRadioChange, onCheckboxChange }) {
                 Checkbox:
                 <input type="checkbox" onChange={handleHiddenButtonChange} />
               </li>
-              <li>Note: When User click on checkbox after 5 seconds button will display</li>
+              <li>Note: When User click on checkbox after 3 seconds button will display</li>
             </ul>
             <div className="hiddenBorder">
               <button
