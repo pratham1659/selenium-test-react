@@ -25,7 +25,7 @@ function Buttons({ onClick, onRadioChange, onCheckboxChange }) {
   const handleCheckboxChange = () => {
     setButtonDisabledCheckBox(true); // Disable the button when checkbox is clicked
     setTimeout(() => {
-      setButtonDisabledCheckBox(false); // Enable the button after 5 seconds
+      setButtonDisabledCheckBox(false); // Enable the button after 3 seconds
       toast.success("Button Enabled");
     }, 3000); // 5000 milliseconds = 5 seconds
   };
@@ -85,7 +85,7 @@ function Buttons({ onClick, onRadioChange, onCheckboxChange }) {
                 Try method: <strong>isEnabled()</strong>
               </li>
             </ul>
-            <button onClick={handleButtonClick} disabled={buttonDisabled}>
+            <button onClick={handleButtonClick} name="disableBtn" disabled={buttonDisabled}>
               Disabled button
             </button>
             <button onClick={enableButton}>Enable Button</button>
@@ -112,10 +112,11 @@ function Buttons({ onClick, onRadioChange, onCheckboxChange }) {
                 Checkbox:
                 <input type="checkbox" onChange={handleCheckboxChange} />
               </li>
-              <li>Note: When User click on checkbox after 5 seconds button will enabled</li>
+              <li>Note: When User click on checkbox after 3 seconds button will enabled</li>
             </ul>
             <button
               className={buttonDisabledCheckBox ? "disabled" : "enabled"}
+              name="checkDisabledButton"
               disabled={buttonDisabledCheckBox}
               onClick={() => showMessage("Disabled Button Click Found!")}>
               Disabled button
