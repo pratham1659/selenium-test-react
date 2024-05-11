@@ -105,6 +105,11 @@ button.enabled {
   cursor: pointer;
   opacity: 1;
 }
+
+.hiddenBorder {
+  border: 1px solid;
+}
+
 /* CSS for calculator --------------------------------------------------------------------------------*/
 
 .calculator {
@@ -144,6 +149,7 @@ button {
   border: 1px solid #f56a6a;
   border-radius: 3px;
   background-color: #f0f0f0;
+  cursor: pointer;
 }
 
 button:hover {
@@ -257,6 +263,46 @@ p {
 }
 .box p:hover {
   color: crimson;
+}
+
+/* dropdown-container -------------------------------------------------- */
+.dropdown-container {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #f9f9f9;
+  min-width: 120px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  transition: opacity 0.3s ease-in-out; /* CSS transition */
+  opacity: 0; /* Initially invisible */
+  pointer-events: none; /* Initially not clickable */
+}
+
+.dropdown-menu.open {
+  opacity: 1; /* Make it visible */
+  pointer-events: auto; /* Make it clickable */
+}
+
+.dropdown-menu ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.dropdown-menu ul li {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.dropdown-menu ul li:hover {
+  background-color: #ddd;
 }
 
 /* Hold Box --------------------------------------*/

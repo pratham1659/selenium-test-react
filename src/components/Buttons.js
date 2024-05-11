@@ -4,7 +4,30 @@ import "./styles.css"; // Assuming you have a CSS file for styling
 
 function Buttons({ onClick, onRadioChange, onCheckboxChange }) {
   const [buttonDisabled, setButtonDisabled] = useState(true);
+  const [checkboxChecked, setCheckboxChecked] = useState(false);
+  const [showHiddenButton, setShowHiddenButton] = useState(false);
   const [buttonDisabledCheckBox, setButtonDisabledCheckBox] = useState(true);
+  const [isOpen, setIsOpen] = useState(false);
+  const [hovered, setHovered] = useState(false);
+
+  // Function to toggle dropdown menu
+  const toggleMenu = () => {
+    setIsOpen(!isOpen);
+  };
+
+  // Function to handle mouse enter event
+  const handleMouseEnter = () => {
+    setHovered(true);
+    setTimeout(() => {
+      setIsOpen(true);
+    }, 3000); // 3-second delay
+  };
+
+  // Function to handle mouse leave event
+  const handleMouseLeave = () => {
+    setHovered(false);
+    setIsOpen(false);
+  };
 
   const handleButtonClick = () => {
     if (!buttonDisabled) {
@@ -12,6 +35,10 @@ function Buttons({ onClick, onRadioChange, onCheckboxChange }) {
     } else {
       toast.success("Disabled Button Click Found!");
     }
+  };
+
+  const handleClick = (link) => {
+    toast.success(`You clicked on ${link}`);
   };
 
   const enableButton = () => {
@@ -28,6 +55,17 @@ function Buttons({ onClick, onRadioChange, onCheckboxChange }) {
       setButtonDisabledCheckBox(false); // Enable the button after 3 seconds
       toast.success("Button Enabled");
     }, 3000); // 5000 milliseconds = 5 seconds
+  };
+
+  const handleHiddenButtonChange = (event) => {
+    setCheckboxChecked(event.target.checked);
+    if (event.target.checked) {
+      setTimeout(() => {
+        setShowHiddenButton(true);
+      }, 3000); // 5000 milliseconds = 5 seconds
+    } else {
+      setShowHiddenButton(false);
+    }
   };
 
   const showMessage = (message) => {
@@ -73,6 +111,32 @@ function Buttons({ onClick, onRadioChange, onCheckboxChange }) {
               </li>
             </ul>
             <button onClick={() => showMessage("Button Action clicked!")}>Button Action Click</button>
+          </div>
+          {/*  */}
+          <div className="actionButtonGroup actionButton">
+            <h2>Delayed Dropdown</h2>
+            <ul style={{ listStyleType: "disc" }}>
+              <li>Try interacting with the button below</li>
+              <li>Use wait to validate dropdown menus</li>
+              <li>
+                Try wait: <strong>Explicit Wait</strong>
+              </li>
+            </ul>
+            <div className="dropdown-container" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+              <button onClick={toggleMenu} id="dropdown-btn">
+                Dropdown Menu
+              </button>
+              <div className={`dropdown-menu ${isOpen && hovered ? "open" : ""}`}>
+                {isOpen && (
+                  <ul>
+                    <li onClick={() => handleClick("Link 1")}>Link 1</li>
+                    <li onClick={() => handleClick("Link 2")}>Link 2</li>
+                    <li onClick={() => handleClick("Link 3")}>Link 3</li>
+                  </ul>
+                )}
+              </div>
+            </div>
+            {/*  */}
           </div>
         </div>
         <div className="popupButtonsContainer">
@@ -121,6 +185,30 @@ function Buttons({ onClick, onRadioChange, onCheckboxChange }) {
               onClick={() => showMessage("Disabled Button Click Found!")}>
               Disabled button
             </button>
+          </div>
+          <div className="actionButtonGroup actionButton">
+            <h2>Hidden Button</h2>
+            <ul style={{ listStyleType: "disc" }}>
+              <li>Try interacting with the button below</li>
+              <li>
+                Try method: <strong>isDisplayed()</strong>
+              </li>
+              <li>
+                Checkbox:
+                <input type="checkbox" onChange={handleHiddenButtonChange} />
+              </li>
+              <li>Note: When User click on checkbox after 5 seconds button will display</li>
+            </ul>
+            <div className="hiddenBorder">
+              <button
+                className={checkboxChecked ? "enabled" : "disabled"}
+                name="checkHiddenButton"
+                id="hiddenBtn"
+                hidden={!showHiddenButton}
+                onClick={() => showMessage("Hidden Button Click Found!")}>
+                Hidden button
+              </button>
+            </div>
           </div>
         </div>
       </div>
