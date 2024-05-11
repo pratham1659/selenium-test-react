@@ -66,30 +66,32 @@ const DropDown = () => {
             with these elements.
           </p>
           <div className="popupButtonsContainer">
+            {/*  */}
             <div className="actionButtonGroup">
               <h2>Radio Buttons</h2>
               <div>
                 <p>Select an Option</p>
                 <div>
                   <label className="label">
-                    <input type="radio" value="option1" checked={selectedOption === "option 1"} onChange={handleOptionChange} />
+                    <input type="radio" value="option1" checked={selectedOption === "option1"} onChange={handleOptionChange} />
                     Option 1
                   </label>
                 </div>
                 <div>
                   <label className="label">
-                    <input type="radio" value="option2" checked={selectedOption === "option 2"} onChange={handleOptionChange} />
+                    <input type="radio" value="option2" checked={selectedOption === "option2"} onChange={handleOptionChange} />
                     Option 2
                   </label>
                 </div>
                 <div>
                   <label className="label">
-                    <input type="radio" value="option3" checked={selectedOption === "option 3"} onChange={handleOptionChange} />
+                    <input type="radio" value="option3" checked={selectedOption === "option3"} onChange={handleOptionChange} />
                     Option 3
                   </label>
                 </div>
               </div>
             </div>
+            {/*  */}
             <div className="actionButtonGroup">
               <h2>Checkboxes</h2>
               <p>Test the checkbox options, below:</p>

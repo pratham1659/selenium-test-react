@@ -786,3 +786,8 @@ input[type="time"] {
   height: 90%;
   border: 1px solid #ccc;
 }
+
+/* Predictive Dialogue -----------------------------------------------*/
+.predictDialoge {
+  cursor: pointer;
+}

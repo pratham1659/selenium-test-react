@@ -17,6 +17,8 @@ import ContactUs from "../components/ContactUs";
 import LoginForm from "../components/LoginForm";
 import LogoutPage from "../components/LogoutPage";
 import Frame from "../components/Frame";
+import TestStore from "../components/TestStore";
+import Predictive from "../components/Predictive";
 
 function MainPage() {
   const [loggedInUser, setLoggedInUser] = useState(null);
@@ -129,9 +131,11 @@ function MainPage() {
             <Route path="/fileupload" element={<FileUpload />} />
             <Route path="/iframes" element={<Frame />} />
             <Route path="/popupalerts" element={<PopupAlert />} />
+            <Route path="/predictivesearch" element={<Predictive />} />
             <Route path="/accordion" element={<Accordion />} />
             <Route path="/calculator" element={<Calculator />} />
             <Route path="/contactus" element={<ContactUs />} />
+            <Route path="/teststore" element={<TestStore />} />
             <Route path="/loginportal" element={<LoginForm setLoggedInUser={setLoggedInUser} />} />
             <Route path="/logout" element={<LogoutPage loggedInUser={loggedInUser} />} />
           </Routes>
