@@ -75,7 +75,7 @@ function Buttons({ onClick, onRadioChange, onCheckboxChange }) {
   return (
     <div className="actionsContainer">
       <div className="actionContent headerStyle">
-        <h1>Testing Buttons</h1>
+        <h2>Testing Buttons</h2>
         <p>Attempt to click the buttons using the instructions for each button below. There are various ways you can click buttons.</p>
         <div className="popupButtonsContainer">
           <div className="actionButtonGroup actionButton">

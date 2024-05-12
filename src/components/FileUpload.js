@@ -2,53 +2,33 @@ import React, { useState } from "react";
 import { Toaster, toast } from "react-hot-toast";
 
 const FileUpload = () => {
+  const [selectedFile, setSelectedFile] = useState(null);
+  const [uploadedFileName, setUploadedFileName] = useState("");
   const [files, setFiles] = useState([]);
-  const [file, setFile] = useState(null);
 
-  const handleFileChange = (e) => {
-    setFile(e.target.files[0]);
+  const handleFileChange = (event) => {
+    setSelectedFile(event.target.files[0]);
   };
 
   const handleSubmit = () => {
-    if (file) {
-      // Create a FormData object
-      const formData = new FormData();
-      formData.append("file", file);
-
-      // Make a POST request to save the file
-      fetch("/api/upload", {
-        method: "POST",
-        body: formData,
-      })
-        .then((response) => {
-          if (response.ok) {
-            toast.success("File uploaded successfully");
-            setFiles([...files, file]);
-            setFile(null); // Clear selected file
-            // Handle successful upload
-          } else {
-            toast.error("Error uploading file");
-            // Handle upload error
-          }
-        })
-        .catch((error) => {
-          toast.error("Error uploading file:", error);
-          // Handle upload error
-        });
+    if (selectedFile) {
+      setUploadedFileName(selectedFile.name);
+      setFiles([...files, selectedFile]);
+      toast.success("File uploaded successfully");
     } else {
-      toast.error("No file selected");
-      // Handle case where no file is selected
+      // Show error alert
+      toast.error("Please select a file before submitting.");
     }
   };
 
   return (
     <div className="headerStyle">
-      <h2>File Upload</h2>
+      <h1>File Upload Testing</h1>
       <p>Select file to Upload: </p>
       <input name="FileUpload" id="fileupload" type="file" onChange={handleFileChange} />
       <button onClick={handleSubmit}>Submit</button>
       <div>
-        <h3>Uploaded Files:</h3>
+        <p>Uploaded Files:</p>
         <ul>
           {files.map((uploadedFile, index) => (
             <li key={index}>{uploadedFile.name}</li>

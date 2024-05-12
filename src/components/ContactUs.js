@@ -38,8 +38,8 @@ function ContactUs() {
 
   return (
     <div className="App">
-      <div className="form-container header-style">
-        <h1>React Form</h1>
+      <div className="form-container headerStyle">
+        <h2>React Form</h2>
         <form onSubmit={handleSubmit}>
           <input type="text" name="firstName" placeholder="First Name" value={formData.firstName} onChange={handleChange} />
           <input type="text" name="lastName" placeholder="Last Name" value={formData.lastName} onChange={handleChange} />
@@ -51,7 +51,7 @@ function ContactUs() {
           <button type="submit">Submit</button>
         </form>
       </div>
-      <div className="table-container">
+      <div className="table-container tableMargin">
         <table>
           <thead>
             <tr>

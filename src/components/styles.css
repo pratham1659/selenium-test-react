@@ -26,19 +26,20 @@
 
 /* CSS for Home */
 .headerStyle h1 {
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  color: #3c4449;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  color: #123838;
   text-align: center;
-  margin-top: 17px;
+  margin-top: 0px;
 }
 
 .headerStyle h2 {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  color: #200f07;
+  color: #0b1f1f;
+  margin-top: 0px;
 }
 
 .headerStyle h3 {
-  font-family: "Varela Round", sans-serif;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
   color: #221a16;
   font-weight: 500;
 }
@@ -710,7 +711,7 @@ input[type="time"] {
 }
 
 .table-container {
-  margin-top: 20px;
+  margin-top: 0px;
 }
 
 .table-container table {

@@ -81,7 +81,7 @@ const DragAction = () => {
   return (
     <div className="actionsContainer">
       <div className="actionContent headerStyle">
-        <h1>Action Testing</h1>
+        <h2>Action Testing</h2>
         <div className="popupButtonsContainer">
           <div className="actionButtonGroup">
             <h2>Drag & Drop Test</h2>

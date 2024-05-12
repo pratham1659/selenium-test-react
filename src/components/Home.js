@@ -7,8 +7,9 @@ const Home = () => {
       <h2>Testing Arena</h2>
       <h3>
         This website has been designed to help you practice your test automation skills by providing various scenarios that you will find
-        across the web. Use the menu on the left to navigate across the website.
+        across the web.
       </h3>
+      <p>Use the menu on the left to navigate across the website.</p>
     </div>
   );
 };

@@ -19,16 +19,19 @@ import LogoutPage from "../components/LogoutPage";
 import Frame from "../components/Frame";
 import TestStore from "../components/TestStore";
 import Predictive from "../components/Predictive";
+import LoaderJs from "../components/LoaderJs";
+import LoaderTwo from "../components/LoaderTwo";
+import HiddenText from "../components/HiddenText";
 
 function MainPage() {
   const [loggedInUser, setLoggedInUser] = useState(null);
   return (
     <div className="App">
-      <h1 className="header">Automation Testing Site</h1>
+      <h1 className="header">Selenium TestLab: Exploring Automated Testing Realms</h1>
       <div style={pageContainerStyle}>
         <div style={leftBoxStyle} className="leftBoxStyle">
           <h2>Navigation Menu</h2>
-          <ul style={{ listStyleType: "none", padding: 0 }}>
+          <ul style={{ listStyleType: "none", padding: 0 }} className="scrollableList">
             <li>
               <Link to="/">HOMEPAGE</Link>
             </li>
@@ -135,6 +138,9 @@ function MainPage() {
             <Route path="/accordion" element={<Accordion />} />
             <Route path="/calculator" element={<Calculator />} />
             <Route path="/contactus" element={<ContactUs />} />
+            <Route path="/hiddenelements" element={<HiddenText />} />
+            <Route path="/loader" element={<LoaderJs />} />
+            <Route path="/loadertwo" element={<LoaderTwo />} />
             <Route path="/teststore" element={<TestStore />} />
             <Route path="/loginportal" element={<LoginForm setLoggedInUser={setLoggedInUser} />} />
             <Route path="/logout" element={<LogoutPage loggedInUser={loggedInUser} />} />
