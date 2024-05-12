@@ -39,7 +39,7 @@ const Accordion = () => {
           <AccordionItem key={index} faq={faq} index={index} />
         ))}
       </ul>
-      <Toaster position="top-right" reverseOrder={false} />
+      <Toaster position="top-center" reverseOrder={false} />
     </>
   );
 };

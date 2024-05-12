@@ -56,7 +56,7 @@ const MouseMove = () => {
           &#9776;
         </button>
       </div>
-      <Toaster position="top-right" reverseOrder={false} />
+      <Toaster position="top-center" reverseOrder={false} />
     </div>
   );
 };

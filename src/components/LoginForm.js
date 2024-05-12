@@ -57,7 +57,7 @@ function LoginForm({ setLoggedInUser }) {
         </button>
       </form>
       {formData.loggedInUser && <p>Logged in as: {formData.loggedInUser}</p>}
-      <Toaster position="top-right" reverseOrder={false} />
+      <Toaster position="top-center" reverseOrder={false} />
     </div>
   );
 }

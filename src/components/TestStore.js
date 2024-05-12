@@ -10,7 +10,7 @@ const TestStore = () => {
       <h2>Test Store</h2>
       <p>Test Store will Coming Soon </p>
       <button onClick={handleSubmit}>Click</button>
-      <Toaster position="top-right" reverseOrder={false} />
+      <Toaster position="top-center" reverseOrder={false} />
     </div>
   );
 };
