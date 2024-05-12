@@ -9,12 +9,12 @@ const HiddenText = () => {
   return (
     <div>
       <div className="headerStyle">
-        <h2>Hidden Elements</h2>
+        <h1>Hidden Elements</h1>
         <h5>
           The hidden attribute is a boolean attribute. When present, it specifies that an element is not yet, or is no longer, relevant.
           Browsers should not display elements that have the hidden attribute specified.
         </h5>
-        <h3>Hidden Paragraphs</h3>
+        <h2>Hidden Paragraphs</h2>
         <p>
           There are two paragraphs listed below, one that is visible and one that is hidden. Use the browser inspector to view the hidden
           paragraph:
