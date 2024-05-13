@@ -792,3 +792,68 @@ input[type="time"] {
 .predictDialoge {
   cursor: pointer;
 }
+
+/* Nested Xpaths -------------------------------- --------------------*/
+
+.nested-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 10px;
+  background-color: #f9f9f9;
+  font-family: Arial, sans-serif;
+}
+
+.nested-header {
+  background-color: #333;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+}
+.nested-header h1 {
+  margin: 0;
+  color: #fff;
+}
+
+.nested-nav ul li {
+  display: inline;
+}
+
+.nested-nav ul li a {
+  color: #fff;
+  text-decoration: none;
+  margin-right: 15px;
+}
+
+.nested-main {
+  margin-top: 20px;
+}
+.nested-intro {
+  background-color: #f0f0f0;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.nested-content {
+  margin-top: 20px;
+}
+
+.nested-content article {
+  background-color: #fff;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+}
+
+.nested-comments {
+  background-color: #f5f5f5;
+  padding: 15px;
+  border-radius: 8px;
+}
+
+.nested-footer {
+  margin-top: 20px;
+  text-align: center;
+  background-color: #333;
+  color: #fff;
+  padding: 15px;
+}

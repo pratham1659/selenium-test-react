@@ -22,6 +22,7 @@ import Predictive from "../components/Predictive";
 import LoaderJs from "../components/LoaderJs";
 import LoaderTwo from "../components/LoaderTwo";
 import HiddenText from "../components/HiddenText";
+import NestedXpath from "../components/NestedXpath";
 
 function MainPage() {
   const [loggedInUser, setLoggedInUser] = useState(null);
@@ -50,6 +51,10 @@ function MainPage() {
             <hr />
             <li>
               <Link to="/buttons">BUTTONS</Link>
+            </li>
+            <hr />
+            <li>
+              <Link to="/nestedxpath">NESTED XPATH</Link>
             </li>
             <hr />
             <li>
@@ -142,6 +147,7 @@ function MainPage() {
             <Route path="/loader" element={<LoaderJs />} />
             <Route path="/loadertwo" element={<LoaderTwo />} />
             <Route path="/teststore" element={<TestStore />} />
+            <Route path="/nestedxpath" element={<NestedXpath />} />
             <Route path="/loginportal" element={<LoginForm setLoggedInUser={setLoggedInUser} />} />
             <Route path="/logout" element={<LogoutPage loggedInUser={loggedInUser} />} />
           </Routes>

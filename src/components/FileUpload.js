@@ -28,7 +28,13 @@ const FileUpload = () => {
       <input name="FileUpload" id="fileupload" type="file" onChange={handleFileChange} />
       <button onClick={handleSubmit}>Submit</button>
       <div>
-        <p>Uploaded Files:</p>
+        <p>
+          <strong>Current Uploaded File:</strong> {uploadedFileName}
+        </p>{" "}
+        {/* Display uploaded file name */}
+        <p>
+          <strong>Uploaded Files:</strong>
+        </p>
         <ul>
           {files.map((uploadedFile, index) => (
             <li key={index}>{uploadedFile.name}</li>
