@@ -52,43 +52,43 @@ const NestedXpath = () => {
             <div class="tree">
               <ul>
                 <li>
-                  <a href="/">Parent</a>
+                  <p>Parent</p>
                   <ul>
                     <li>
-                      <a href="/">Child A</a>
+                      <p>Child A</p>
                       <ul>
                         <li>
-                          <a href="/">Grand Child A1</a>
+                          <p>Grand Child A1</p>
                         </li>
                       </ul>
                     </li>
                     <li>
-                      <a href="/">Child B</a>
+                      <p>Child B</p>
                       <ul>
                         <li>
-                          <a href="/">Grand Child B1</a>
+                          <p>Grand Child B1</p>
                         </li>
                         <li>
-                          <a href="/">Grand Child B2</a>
+                          <p>Grand Child B2</p>
                           <ul>
                             <li>
-                              <a href="/">Great Grand Child</a>
+                              <p>Great Grand Child</p>
                             </li>
                             <li>
-                              <a href="/">Great Grand Child</a>
+                              <p>Great Grand Child</p>
                             </li>
                             <li>
-                              <a href="/">Great Grand Child</a>
+                              <p>Great Grand Child</p>
                             </li>
                           </ul>
                         </li>
                         <li>
-                          <a href="/">Grand Child B3</a>
+                          <p>Grand Child B3</p>
                         </li>
                       </ul>
                     </li>
                     <li>
-                      <a href="/">Child C</a>
+                      <p>Child C</p>
                     </li>
                   </ul>
                 </li>
