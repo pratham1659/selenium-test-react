@@ -13,6 +13,39 @@ export const faqs = [
   },
 ];
 
+export const planets = [
+  {
+    category: "Giant planets",
+    subcategories: [
+      {
+        name: "Gas giants",
+        planets: ["Jupiter", "Saturn"],
+      },
+      {
+        name: "Ice giants",
+        planets: ["Uranus", "Neptune"],
+      },
+      {
+        name: "Super giants",
+        planets: ["HD 100546 b", "Kepler-10c"],
+      },
+    ],
+  },
+  {
+    category: "Dwarf planets",
+    subcategories: [
+      {
+        name: "Plutoids",
+        planets: ["Pluto", "Haumea", "Makemake", "Eris"],
+      },
+      {
+        name: "Others",
+        planets: ["Ceres"],
+      },
+    ],
+  },
+];
+
 export const studentData = [
   { id: 1, name: "John Doe", age: 20, grade: "A" },
   { id: 2, name: "Jane Smith", age: 22, grade: "B" },

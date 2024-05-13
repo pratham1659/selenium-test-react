@@ -42,70 +42,60 @@ const NestedXpath = () => {
               <p>This is the second article.</p>
             </article>
           </section>
-          <section>
-            <div className="table-container">
-              <table>
-                <thead>
-                  <tr>
-                    <th>Level</th>
-                    <th>Element</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>1</td>
-                    <td>Grandparent</td>
-                    <td>This is the grandparent element.</td>
-                  </tr>
-                  <tr>
-                    <td>2</td>
-                    <td>Parent</td>
-                    <td>This is the parent element.</td>
-                  </tr>
-                  <tr>
-                    <td>3</td>
-                    <td>Child</td>
-                    <td>This is the first child element.</td>
-                  </tr>
-                  <tr>
-                    <td>4</td>
-                    <td>Grandchild</td>
-                    <td>This is the grandchild element.</td>
-                  </tr>
-                  <tr>
-                    <td>5</td>
-                    <td>Great Grandchild</td>
-                    <td>This is the great-grandchild element.</td>
-                  </tr>
-                  <tr>
-                    <td>3</td>
-                    <td>Child</td>
-                    <td>This is the second child element.</td>
-                  </tr>
-                  <tr>
-                    <td>2</td>
-                    <td>Parent</td>
-                    <td>This is the second parent element.</td>
-                  </tr>
-                  <tr>
-                    <td>3</td>
-                    <td>Child</td>
-                    <td>This is the third child element.</td>
-                  </tr>
-                  <tr>
-                    <td>3</td>
-                    <td>Child</td>
-                    <td>This is the fourth child element.</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </section>
         </main>
         <footer className="nested-footer">
           <p>&copy; 2024 Nested Tags Demo. All rights reserved.</p>
         </footer>
+
+        <main>
+          <section>
+            <div class="tree">
+              <ul>
+                <li>
+                  <a href="/">Parent</a>
+                  <ul>
+                    <li>
+                      <a href="/">Child A</a>
+                      <ul>
+                        <li>
+                          <a href="/">Grand Child A1</a>
+                        </li>
+                      </ul>
+                    </li>
+                    <li>
+                      <a href="/">Child B</a>
+                      <ul>
+                        <li>
+                          <a href="/">Grand Child B1</a>
+                        </li>
+                        <li>
+                          <a href="/">Grand Child B2</a>
+                          <ul>
+                            <li>
+                              <a href="/">Great Grand Child</a>
+                            </li>
+                            <li>
+                              <a href="/">Great Grand Child</a>
+                            </li>
+                            <li>
+                              <a href="/">Great Grand Child</a>
+                            </li>
+                          </ul>
+                        </li>
+                        <li>
+                          <a href="/">Grand Child B3</a>
+                        </li>
+                      </ul>
+                    </li>
+                    <li>
+                      <a href="/">Child C</a>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </main>
       </div>
     </div>
   );
