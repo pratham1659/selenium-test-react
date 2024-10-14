@@ -20,37 +20,12 @@ const NestedXpath = () => {
             </ul>
           </nav>
         </header>
-        <main className="nested-main">
-          <section className="nested-intro">
-            <h2>Welcome!</h2>
-            <p>This is a demo showcasing nesting tags in HTML using React.</p>
-          </section>
-          <section className="nested-content">
-            <article>
-              <h2>Article 1</h2>
-              <p>This is the first article.</p>
-              <div className="nested-comments">
-                <h3>Comments</h3>
-                <ul>
-                  <li>Comment 1</li>
-                  <li>Comment 2</li>
-                </ul>
-              </div>
-            </article>
-            <article>
-              <h2>Article 2</h2>
-              <p>This is the second article.</p>
-            </article>
-          </section>
-        </main>
-        <footer className="nested-footer">
-          <p>&copy; 2024 Nested Tags Demo. All rights reserved.</p>
-        </footer>
 
         <main>
           <section>
             <div className="container mx-auto p-8">
               <div className="family-tree">
+                <h1 className="family-tree-mt">Family Tree for Nested Xpath Testing</h1>
                 <ul>
                   <li>
                     <div className="member">Ancestor-1</div>

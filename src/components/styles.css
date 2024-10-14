@@ -29,7 +29,7 @@
   font-family: "Roboto", "Helvetica", "Arial", sans-serif;
   color: #123838;
   text-align: center;
-  margin-top: 0px;
+  /* margin-top: 0px; */
 }
 
 .headerStyle h2 {
@@ -836,32 +836,14 @@ input[type="time"] {
   margin-top: 20px;
 }
 
-.nested-content article {
-  background-color: #fff;
-  padding: 20px;
-  margin-bottom: 20px;
-  border-radius: 8px;
-}
-
-.nested-comments {
-  background-color: #f5f5f5;
-  padding: 15px;
-  border-radius: 8px;
-}
-
-.nested-footer {
-  margin-top: 20px;
-  text-align: center;
-  background-color: #333;
-  color: #fff;
-  padding: 15px;
-}
-
 /* Tree view ------------------------------------------------------------------------------------- */
 
 .family-tree {
   display: inline-block;
   text-align: center;
+}
+.family-tree-mt {
+  margin-top: 10px;
 }
 
 .family-tree ul {
@@ -952,4 +934,79 @@ input[type="time"] {
 .family-tree li .member:hover + ul::before,
 .family-tree li .member:hover + ul ul::before {
   border-color: #94a0b4;
+}
+
+/* Family Treee --------------------------------------------------------------------------------- */
+
+.unique-container {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.unique-title {
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.unique-family-tree {
+  max-height: 80vh;
+  overflow-y: auto;
+  padding-left: 0;
+}
+
+.unique-tree-list {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.unique-tree-node {
+  margin-bottom: 10px;
+  position: relative;
+}
+
+.unique-node-content {
+  display: flex;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+.unique-expand-button {
+  background: none;
+  border: none;
+  margin-right: 10px;
+  cursor: pointer;
+  padding: 5px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  transition: background-color 0.2s;
+}
+.unique-icon {
+  width: 16px;
+  height: 16px;
+}
+
+.unique-member {
+  background-color: white;
+  border: 1px solid #ddd;
+  padding: 10px 15px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.2s;
+}
+
+.unique-member:hover {
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.unique-children {
+  margin-left: 20px;
+  border-left: 2px solid #ddd;
+  padding-left: 20px;
 }

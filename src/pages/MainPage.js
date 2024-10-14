@@ -23,6 +23,7 @@ import LoaderJs from "../components/LoaderJs";
 import LoaderTwo from "../components/LoaderTwo";
 import HiddenText from "../components/HiddenText";
 import NestedXpath from "../components/NestedXpath";
+import FamilyTree from "../components/FamilyTree";
 
 function MainPage() {
   const [loggedInUser, setLoggedInUser] = useState(null);
@@ -55,6 +56,10 @@ function MainPage() {
             <hr />
             <li>
               <Link to="/nestedxpath">NESTED XPATH</Link>
+            </li>
+            <hr />
+            <li>
+              <Link to="/familytree">FAMILY TREE</Link>
             </li>
             <hr />
             <li>
@@ -148,6 +153,7 @@ function MainPage() {
             <Route path="/loadertwo" element={<LoaderTwo />} />
             <Route path="/teststore" element={<TestStore />} />
             <Route path="/nestedxpath" element={<NestedXpath />} />
+            <Route path="/familytree" element={<FamilyTree />} />
             <Route path="/loginportal" element={<LoginForm setLoggedInUser={setLoggedInUser} />} />
             <Route path="/logout" element={<LogoutPage loggedInUser={loggedInUser} />} />
           </Routes>
