@@ -6,19 +6,6 @@ const NestedXpath = () => {
       <div className="nested-container">
         <header className="nested-header">
           <h1>Nested Tags Demo</h1>
-          <nav className="nested-nav">
-            <ul>
-              <li>
-                <a href="/">Home</a>
-              </li>
-              <li>
-                <a href="/aboutme">About</a>
-              </li>
-              <li>
-                <a href="/contact">Contact</a>
-              </li>
-            </ul>
-          </nav>
         </header>
 
         <main>

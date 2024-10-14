@@ -1,62 +1,44 @@
-import React, { useState } from "react";
-import { ChevronDown, ChevronRight } from "lucide-react";
+import React from "react";
 import "./styles.css";
-
-const TreeNode = ({ id, name, children }) => {
-  const [expanded, setExpanded] = useState(false);
-
-  const toggleExpand = () => {
-    setExpanded(!expanded);
-  };
-
-  return (
-    <li className="unique-tree-node">
-      <div className="unique-node-content">
-        {children && (
-          <button onClick={toggleExpand} aria-expanded={expanded}>
-            {expanded ? <ChevronDown className="unique-icon" /> : <ChevronRight className="unique-icon" />}
-          </button>
-        )}
-        <div className="unique-member">{name}</div>
-      </div>
-      {children && expanded && <ul className="unique-children">{children}</ul>}
-    </li>
-  );
-};
 
 const FamilyTree = () => {
   return (
     <div className="headerStyle scrollableList">
-      <div className="unique-container">
-        <h1 className="unique-title">Family Tree</h1>
-        <div className="unique-family-tree">
-          <ul className="unique-tree-list">
-            <TreeNode id="ancestor" name="Ancestor-1">
-              <TreeNode id="parent-2" name="Parent-2" />
-              <TreeNode id="parent-3" name="Parent-3">
-                <TreeNode id="self-5" name="Self-5" />
-                <TreeNode id="self-6" name="Self-6" />
-                <TreeNode id="self" name="Self">
-                  <TreeNode id="child-9" name="Child-9" />
-                  <TreeNode id="child-10" name="Child-10">
-                    <TreeNode id="grandchild-13" name="GrandChild-13" />
-                    <TreeNode id="grandchild-14" name="GrandChild-14" />
-                  </TreeNode>
-                  <TreeNode id="child" name="Child">
-                    <TreeNode id="grandchild" name="GrandChild" />
-                  </TreeNode>
-                  <TreeNode id="child-11" name="Child-11" />
-                  <TreeNode id="child-12" name="Child-12">
-                    <TreeNode id="grandchild-15" name="GrandChild-15" />
-                    <TreeNode id="grandchild-16" name="GrandChild-16" />
-                  </TreeNode>
-                </TreeNode>
-                <TreeNode id="self-7" name="Self-7" />
-                <TreeNode id="self-8" name="Self-8" />
-              </TreeNode>
-              <TreeNode id="parent-4" name="Parent-4" />
-            </TreeNode>
-          </ul>
+      <header className="nested-header">
+        <h1>Family Tree for Xpath Testing</h1>
+      </header>
+      <div className="tree-container">
+        {/* Ancestor */}
+        <div className="row generation ancestor">Ancestor</div>
+
+        {/* Parents Generation */}
+        <div className="row generation parents">
+          <div>Parent 1</div>
+          <div>Parent 2</div>
+        </div>
+
+        {/* Children Generation */}
+        <div className="row generation children">
+          <div>Self 1</div>
+          <div>Self 2</div>
+          <div>Self 3</div>
+        </div>
+
+        {/* Grandchildren Generation */}
+        <div className="row generation grandchildren">
+          <div>Child 1</div>
+          <div>Child 2</div>
+          <div>Child 3</div>
+          <div>Child 4</div>
+        </div>
+
+        {/* Additional Family (New Generation) */}
+        <div className="row generation great-grandchildren">
+          <div>Grandchild 1</div>
+          <div>Grandchild 2</div>
+          <div>Grandchild 3</div>
+          <div>Grandchild 4</div>
+          <div>Grandchild 5</div>
         </div>
       </div>
     </div>
