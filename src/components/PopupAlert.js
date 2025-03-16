@@ -1,5 +1,4 @@
 import React from "react";
-import "./styles.css"; // Import CSS for styling
 
 const PopupAlert = () => {
   const openPopup = () => {
@@ -7,34 +6,41 @@ const PopupAlert = () => {
   };
 
   return (
-    <div className="popupContainer">
-      <div className="popupContent headerStyle">
-        <h1>Popup & Alerts</h1>
-        <p>
-          Pop-ups are small windows that 'pop up' over the top of web pages in your internet browser. Advertisers used them as a way to get
-          your attention. Alerts are often used if you want to make sure information comes through to the user. Try to test the pop-up and
-          alert functions. Try opening and closing both the pop-up and alert.
+    <div className="min-h-screen flex flex-col items-center justify-center bg-gray-100 p-6">
+      <div className="bg-white shadow-lg rounded-lg p-8 max-w-3xl w-full text-center">
+        <h1 className="text-3xl font-bold text-gray-800">Popup & Alerts</h1>
+        <p className="text-gray-600 mt-4">
+          Pop-ups are small windows that 'pop up' over web pages in your browser. Advertisers use them to get attention. Alerts help ensure
+          information reaches users. Try opening and closing both a pop-up and an alert.
         </p>
-        <div className="popupButtonsContainer">
-          <div className="popupButtonGroup">
-            <h2>Pop-Up Testing</h2>
-            <p>Trigger the pop-up window to open by clicking the button below. Instruct your test to then close the pop-up window:</p>
-            <button className="popupButton" onClick={() => openPopup()}>
-              Trigger Popup
-            </button>
-            <button className="popupButton" onClick={() => openPopup()}>
+
+        {/* Popup Buttons */}
+        <div className="mt-6 grid md:grid-cols-2 gap-6">
+          <div className="bg-gray-50 p-6 rounded-lg shadow-sm">
+            <h2 className="text-xl font-semibold text-gray-700">Pop-Up Testing</h2>
+            <p className="text-gray-600 mt-2">Click the button below to open a pop-up window:</p>
+            <button className="mt-4 w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition" onClick={openPopup}>
               Trigger Popup
             </button>
           </div>
-          <div className="popupButtonGroup">
-            <h2>Alert Testing</h2>
-            <p>Press the button below to trigger the alert event. Then try to instruct your automation test to close the alert:</p>
-            <button className="popupButton" onClick={() => alert("Alert Button clicked!")}>
-              Trigger Alert
-            </button>
-            <button className="popupButton" onClick={() => alert("Alert dismissed!")} aria-label="Close alert" type="button" data-close>
-              Dismiss Alert
-            </button>
+
+          {/* Alert Buttons */}
+          <div className="bg-gray-50 p-6 rounded-lg shadow-sm">
+            <h2 className="text-xl font-semibold text-gray-700">Alert Testing</h2>
+            <p className="text-gray-600 mt-2">Click a button to trigger or dismiss an alert:</p>
+            <div className="mt-4 flex flex-col gap-3">
+              <button
+                className="w-full bg-green-600 text-white py-2 rounded-lg hover:bg-green-700 transition"
+                onClick={() => alert("Alert Button clicked!")}>
+                Trigger Alert
+              </button>
+              <button
+                className="w-full bg-red-600 text-white py-2 rounded-lg hover:bg-red-700 transition"
+                onClick={() => alert("Alert dismissed!")}
+                aria-label="Close alert">
+                Dismiss Alert
+              </button>
+            </div>
           </div>
         </div>
       </div>
