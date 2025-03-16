@@ -17,10 +17,9 @@ const DragAction = () => {
     e.preventDefault();
     const id = e.dataTransfer.getData("text/plain");
     const draggableElement = document.getElementById(id);
-    const targetBox = e.target.closest(".box");
-    const sourceBox = draggableElement.closest(".box");
+    const targetBox = e.target.closest(".drop-zone");
 
-    if (targetBox && sourceBox !== targetBox) {
+    if (targetBox && !targetBox.contains(draggableElement)) {
       targetBox.appendChild(draggableElement);
       toast.success("Element moved!");
     }
@@ -66,32 +65,36 @@ const DragAction = () => {
       {/* Top Two Boxes */}
       <div className="grid grid-cols-2 gap-6 w-full max-w-4xl">
         {/* Drag & Drop Test */}
-        <div className="bg-gray-200 p-4 rounded-lg shadow-md">
+        <div className="bg-gray-200 p-4 rounded-lg shadow-md w-full max-w-4xl">
           <h3 className="text-lg font-semibold">Drag & Drop Test</h3>
           <p className="text-sm text-gray-600">Drag the elements between the boxes:</p>
+
           <div className="flex justify-between mt-4">
+            {/* Drop Zone 1 */}
             <div
-              className="w-1/2 h-24 border-2 border-gray-500 flex items-center justify-center"
+              className="drop-zone w-1/2 h-24 border-2 border-gray-500 flex items-center justify-center"
               onDrop={handleDrop}
               onDragOver={(e) => e.preventDefault()}>
               <p
                 id="dragElement1"
                 draggable
                 onDragStart={handleDragStart}
-                className="cursor-pointer bg-blue-500 text-white px-4 py-2 rounded">
-                Drag me (A)
+                className="cursor-pointer bg-blue-500 text-white px-4 py-2 rounded user-select-none">
+                Drag (A)
               </p>
             </div>
+
+            {/* Drop Zone 2 */}
             <div
-              className="w-1/2 h-24 border-2 border-gray-500 flex items-center justify-center"
+              className="drop-zone w-1/2 h-24 border-2 border-gray-500 flex items-center justify-center"
               onDrop={handleDrop}
               onDragOver={(e) => e.preventDefault()}>
               <p
                 id="dragElement2"
                 draggable
                 onDragStart={handleDragStart}
-                className="cursor-pointer bg-green-500 text-white px-4 py-2 rounded">
-                Drag me (B)
+                className="cursor-pointer bg-green-500 text-white px-4 py-2 rounded user-select-none">
+                Drag (B)
               </p>
             </div>
           </div>
