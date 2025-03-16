@@ -1,27 +1,16 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Toaster, toast } from "react-hot-toast";
-import "./styles.css"; // Import CSS for styling
 
 const DragAction = () => {
-  const [message, setMessage] = useState("");
-  const [doubleClickMessage, setdoubleClickMessage] = useState("");
-  const [shiftClickMessage, setshiftClickMessage] = useState("");
+  const [message, setMessage] = useState("Click and hold");
+  const [doubleClickMessage, setDoubleClickMessage] = useState("Double click here");
+  const [shiftClickMessage, setShiftClickMessage] = useState("Shift + Mouse Hold");
   const [isMouseDown, setIsMouseDown] = useState(false);
   const [isGreen, setIsGreen] = useState(false);
   const [isRed, setIsRed] = useState(false);
 
-  useEffect(() => {
-    setMessage("Click and hold");
-    setshiftClickMessage("Shift + Mouse Hold");
-    setdoubleClickMessage("Double click here");
-  }, []); // Run this effect only once when the component mounts
-
   const handleDragStart = (e) => {
     e.dataTransfer.setData("text/plain", e.target.id);
-  };
-
-  const handleDragOver = (e) => {
-    e.preventDefault();
   };
 
   const handleDrop = (e) => {
@@ -30,10 +19,10 @@ const DragAction = () => {
     const draggableElement = document.getElementById(id);
     const targetBox = e.target.closest(".box");
     const sourceBox = draggableElement.closest(".box");
-    targetBox.appendChild(draggableElement);
 
-    if (sourceBox !== targetBox) {
-      toast.success("Element dragged from one box to another");
+    if (targetBox && sourceBox !== targetBox) {
+      targetBox.appendChild(draggableElement);
+      toast.success("Element moved!");
     }
   };
 
@@ -48,91 +37,110 @@ const DragAction = () => {
   };
 
   const handleDoubleClick = () => {
-    setdoubleClickMessage("Well done");
+    setDoubleClickMessage("Well done!");
     setIsGreen(true);
-
-    // Reset the message and color after 1 second
     setTimeout(() => {
-      setdoubleClickMessage("Double click here");
+      setDoubleClickMessage("Double click here");
       setIsGreen(false);
     }, 5000);
   };
 
-  const handleClickDown = (e) => {
+  const handleShiftClick = (e) => {
     if (e.shiftKey) {
-      setshiftClickMessage("Well done");
+      setShiftClickMessage("Good job!");
+      setIsRed(false);
     } else {
-      setshiftClickMessage("Try again");
+      setShiftClickMessage("Try again with Shift key!");
       setIsRed(true);
     }
-
-    // Reset the message and color after 2 seconds
     setTimeout(() => {
-      setshiftClickMessage("Shift + Mouse Hold");
+      setShiftClickMessage("Shift + Mouse Hold");
       setIsRed(false);
     }, 5000);
   };
 
-  const handleClickUp = () => {
-    setshiftClickMessage("");
-    setIsRed(false);
-  };
-
   return (
-    <div className="actionsContainer">
-      <div className="actionContent headerStyle">
-        <h2>Action Testing</h2>
-        <div className="popupButtonsContainer">
-          <div className="actionButtonGroup">
-            <h2>Drag & Drop Test</h2>
-            <p>Drag the p element back and forth between the two rectangles:</p>
-            <div className="container">
-              <div className="box" name="box1" onDragOver={handleDragOver} onDrop={handleDrop}>
-                <p id="dragElement1" draggable onDragStart={handleDragStart}>
-                  Drag me(A)
-                </p>
-              </div>
-              <div className="box" name="box2" onDragOver={handleDragOver} onDrop={handleDrop}>
-                <p id="dragElement2" draggable onDragStart={handleDragStart}>
-                  Drag me(B)
-                </p>
-              </div>
+    <div className="flex flex-col items-center gap-8 p-6">
+      <h2 className="text-2xl font-bold">Action Testing</h2>
+
+      {/* Top Two Boxes */}
+      <div className="grid grid-cols-2 gap-6 w-full max-w-4xl">
+        {/* Drag & Drop Test */}
+        <div className="bg-gray-200 p-4 rounded-lg shadow-md">
+          <h3 className="text-lg font-semibold">Drag & Drop Test</h3>
+          <p className="text-sm text-gray-600">Drag the elements between the boxes:</p>
+          <div className="flex justify-between mt-4">
+            <div
+              className="w-1/2 h-24 border-2 border-gray-500 flex items-center justify-center"
+              onDrop={handleDrop}
+              onDragOver={(e) => e.preventDefault()}>
+              <p
+                id="dragElement1"
+                draggable
+                onDragStart={handleDragStart}
+                className="cursor-pointer bg-blue-500 text-white px-4 py-2 rounded">
+                Drag me (A)
+              </p>
             </div>
-          </div>
-          <div className="actionButtonGroup">
-            <h2>Mouse Hold Test</h2>
-            <p>Hold this area down with your mouse:</p>
-            <div className="container">
-              <div className={`hold-box ${isMouseDown ? "green-bg" : "red-bg"}`} onMouseDown={handleMouseDown} onMouseUp={handleMouseUp}>
-                {message}
-              </div>
+            <div
+              className="w-1/2 h-24 border-2 border-gray-500 flex items-center justify-center"
+              onDrop={handleDrop}
+              onDragOver={(e) => e.preventDefault()}>
+              <p
+                id="dragElement2"
+                draggable
+                onDragStart={handleDragStart}
+                className="cursor-pointer bg-green-500 text-white px-4 py-2 rounded">
+                Drag me (B)
+              </p>
             </div>
           </div>
         </div>
-        <div className="popupButtonsContainer">
-          <div className="actionButtonGroup">
-            <h2>Mouse Double Click Test</h2>
-            <p>Double-click this area below to trigger a function:</p>
-            <div className="outer-container">
-              <div className={`double-click-box ${isGreen ? "green-bg" : ""}`} onDoubleClick={handleDoubleClick}>
-                {doubleClickMessage}
-              </div>
-            </div>
-          </div>
-          <div className="actionButtonGroup">
-            <h2>Shift + Mouse Hold Test</h2>
-            <p>Click the button below while holding the shift key:</p>
-            <div className="outer-container">
-              <div
-                className={`hold-shift-click-box ${isRed ? "red-bg" : "green-bg"}`}
-                onMouseDown={handleClickDown}
-                onMouseUp={handleClickUp}>
-                {shiftClickMessage}
-              </div>
-            </div>
+
+        {/* Mouse Hold Test */}
+        <div className="bg-gray-200 p-4 rounded-lg shadow-md">
+          <h3 className="text-lg font-semibold">Mouse Hold Test</h3>
+          <p className="text-sm text-gray-600">Hold down the box:</p>
+          <div
+            className={`mt-4 w-full h-16 flex items-center justify-center rounded text-white text-lg cursor-pointer transition-colors ${
+              isMouseDown ? "bg-green-500" : "bg-red-500"
+            }`}
+            onMouseDown={handleMouseDown}
+            onMouseUp={handleMouseUp}>
+            {message}
           </div>
         </div>
       </div>
+
+      {/* Bottom Two Boxes */}
+      <div className="grid grid-cols-2 gap-6 w-full max-w-4xl">
+        {/* Double Click Test */}
+        <div className="bg-gray-200 p-4 rounded-lg shadow-md">
+          <h3 className="text-lg font-semibold">Double Click Test</h3>
+          <p className="text-sm text-gray-600">Double-click the box:</p>
+          <div
+            className={`mt-4 w-full h-16 flex items-center justify-center rounded text-white text-lg cursor-pointer transition-colors ${
+              isGreen ? "bg-green-500" : "bg-gray-500"
+            }`}
+            onDoubleClick={handleDoubleClick}>
+            {doubleClickMessage}
+          </div>
+        </div>
+
+        {/* Shift + Mouse Hold Test */}
+        <div className="bg-gray-200 p-4 rounded-lg shadow-md">
+          <h3 className="text-lg font-semibold">Shift + Mouse Hold Test</h3>
+          <p className="text-sm text-gray-600">Click the box while holding Shift:</p>
+          <div
+            className={`mt-4 w-full h-16 flex items-center justify-center rounded text-white text-lg cursor-pointer transition-colors ${
+              isRed ? "bg-red-500" : "bg-green-500"
+            }`}
+            onMouseDown={handleShiftClick}>
+            {shiftClickMessage}
+          </div>
+        </div>
+      </div>
+
       <Toaster position="top-center" reverseOrder={false} />
     </div>
   );
