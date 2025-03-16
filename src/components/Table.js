@@ -40,15 +40,15 @@ const Table = () => {
               <th>Grade</th>
             </tr>
           </thead>
-          <tbody>
+          <tbody className="stbody">
             {studentData.map((student) => (
-              <tr key={student.id}>
-                <td>
+              <tr key={student.id} id="srow">
+                <td id="scheck">
                   <input type="checkbox" checked={selectedItems.includes(student.id)} onChange={() => handleCheckboxChange(student.id)} />
                 </td>
-                <td>{student.name}</td>
-                <td>{student.age}</td>
-                <td>{student.grade}</td>
+                <td id="sname">{student.name}</td>
+                <td id="sage">{student.age}</td>
+                <td id="sgrade">{student.grade}</td>
               </tr>
             ))}
           </tbody>
