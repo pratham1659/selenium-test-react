@@ -17,7 +17,6 @@ import Frame from "../components/Frame";
 import TestStore from "../components/TestStore";
 import Predictive from "../components/Predictive";
 import LoaderJs from "../components/LoaderJs";
-import LoaderTwo from "../components/LoaderTwo";
 import HiddenText from "../components/HiddenText";
 import NestedXpath from "../components/NestedXpath";
 import FamilyTree from "../components/FamilyTree";
@@ -30,7 +29,7 @@ function MainPage() {
       <h1 className="text-3xl font-bold text-center py-4 text-blue-700">Selenium TestLab: Exploring Automated Testing Realms</h1>
       <div className="flex">
         {/* Sidebar Navigation */}
-        <aside className="w-64 bg-white shadow-md border-r p-4 h-screen overflow-y-auto">
+        <aside className="w-64 bg-white shadow-md border-r p-3 h-screen overflow-y-auto">
           <h2 className="text-xl font-bold mb-2">Navigation Menu</h2>
           <ul className="space-y-2">
             {[
@@ -38,8 +37,6 @@ function MainPage() {
               { path: "/actions", label: "ACTIONS" },
               { path: "/browsertabs", label: "BROWSER TABS" },
               { path: "/buttons", label: "BUTTONS" },
-              { path: "/nestedxpath", label: "NESTED XPATH" },
-              { path: "/familytree", label: "FAMILY TREE" },
               { path: "/contactus", label: "CONTACT US FORM TEST" },
               { path: "/datepicker", label: "DATE PICKER" },
               { path: "/dropdown", label: "DROPDOWN CHECKBOX RADIO" },
@@ -47,12 +44,13 @@ function MainPage() {
               { path: "/hiddenelements", label: "HIDDEN ELEMENTS" },
               { path: "/iframes", label: "IFRAMES" },
               { path: "/loader", label: "LOADER" },
-              { path: "/loadertwo", label: "LOADER TWO" },
               { path: "/loginportal", label: "LOGIN PORTAL TEST" },
               { path: "/mousemovement", label: "MOUSE MOVEMENT" },
               { path: "/popupalerts", label: "POP UPS & ALERTS" },
               { path: "/predictivesearch", label: "PREDICTIVE SEARCH" },
               { path: "/tables", label: "TABLES" },
+              { path: "/nestedxpath", label: "NESTED XPATH" },
+              { path: "/familytree", label: "FAMILY TREE" },
               { path: "/teststore", label: "TEST STORE" },
             ].map((item) => (
               <li key={item.path}>
@@ -83,7 +81,6 @@ function MainPage() {
             <Route path="/contactus" element={<ContactUs />} />
             <Route path="/hiddenelements" element={<HiddenText />} />
             <Route path="/loader" element={<LoaderJs />} />
-            <Route path="/loadertwo" element={<LoaderTwo />} />
             <Route path="/teststore" element={<TestStore />} />
             <Route path="/nestedxpath" element={<NestedXpath />} />
             <Route path="/familytree" element={<FamilyTree />} />

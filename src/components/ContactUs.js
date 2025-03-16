@@ -37,21 +37,28 @@ function ContactUs() {
   };
 
   return (
-    <div className="App">
-      <div className="form-container headerStyle">
+    <div className="container">
+      <div className="form-container">
         <h2>React Form</h2>
         <form onSubmit={handleSubmit}>
-          <input type="text" name="firstName" placeholder="First Name" value={formData.firstName} onChange={handleChange} />
-          <input type="text" name="lastName" placeholder="Last Name" value={formData.lastName} onChange={handleChange} />
-          <input type="text" name="username" placeholder="Username" value={formData.username} onChange={handleChange} />
-          <input type="email" name="email" placeholder="Email" value={formData.email} onChange={handleChange} />
-          <input type="date" name="dob" placeholder="Date of Birth" value={formData.dob} onChange={handleChange} />
-          <input type="text" name="contact" placeholder="Contact" value={formData.contact} onChange={handleChange} />
-          {/* The pattern attribute enforces the input to match the specified pattern */}
+          <input type="text" name="firstName" placeholder="First Name" value={formData.firstName} onChange={handleChange} required />
+          <input type="text" name="lastName" placeholder="Last Name" value={formData.lastName} onChange={handleChange} required />
+          <input type="text" name="username" placeholder="Username" value={formData.username} onChange={handleChange} required />
+          <input type="email" name="email" placeholder="Email" value={formData.email} onChange={handleChange} required />
+          <input type="date" name="dob" value={formData.dob} onChange={handleChange} required />
+          <input
+            type="tel"
+            name="contact"
+            placeholder="Contact"
+            value={formData.contact}
+            onChange={handleChange}
+            pattern="[0-9]{10}"
+            required
+          />
           <button type="submit">Submit</button>
         </form>
       </div>
-      <div className="table-container tableMargin">
+      <div className="table-container">
         <table>
           <thead>
             <tr>
@@ -60,7 +67,7 @@ function ContactUs() {
               <th>Username</th>
               <th>Email</th>
               <th>Date of Birth</th>
-              <th>Contact</th> {/* Corrected typo: 'contact' to 'Contact' */}
+              <th>Contact</th>
             </tr>
           </thead>
           <tbody>
