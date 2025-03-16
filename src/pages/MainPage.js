@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import "./styles.css";
 import { Link, Routes, Route } from "react-router-dom";
 import Home from "../components/Home";
 import Calculator from "../components/Calculator";
@@ -27,111 +26,51 @@ import FamilyTree from "../components/FamilyTree";
 
 function MainPage() {
   const [loggedInUser, setLoggedInUser] = useState(null);
+
   return (
-    <div className="App">
-      <h1 className="header">Selenium TestLab: Exploring Automated Testing Realms</h1>
-      <div style={pageContainerStyle}>
-        <div style={leftBoxStyle} className="leftBoxStyle">
-          <h2>Navigation Menu</h2>
-          <ul style={{ listStyleType: "none", padding: 0 }} className="scrollableList">
-            <li>
-              <Link to="/">HOMEPAGE</Link>
-            </li>
-            <hr />
-            <li>
-              <Link to="/accordion">ACCORDION</Link>
-            </li>
-            <hr />
-            <li>
-              <Link to="/actions">ACTIONS</Link>
-            </li>
-            <hr />
-            <li>
-              <Link to="/browsertabs">BROWSER TABS</Link>
-            </li>
-            <hr />
-            <li>
-              <Link to="/buttons">BUTTONS</Link>
-            </li>
-            <hr />
-            <li>
-              <Link to="/nestedxpath">NESTED XPATH</Link>
-            </li>
-            <hr />
-            <li>
-              <Link to="/familytree">FAMILY TREE</Link>
-            </li>
-            <hr />
-            <li>
-              <Link to="/calculator">CALCULATOR</Link>
-            </li>
-            <hr />
-            <li>
-              <Link to="/contactus">CONTACT US FORM TEST</Link>
-            </li>
-            <hr />
-            <li>
-              <Link to="/datepicker">DATE PICKER</Link>
-            </li>
-            <hr />
-            <li>
-              <Link to="/dropdown">DROPDOWN CHECKBOX RADIO</Link>
-            </li>
-            <hr />
-            <li>
-              <Link to="/fileupload">FILE UPLOAD</Link>
-            </li>
-            <hr />
-            <li>
-              <Link to="/hiddenelements">HIDDEN ELEMENTS</Link>
-            </li>
-            <hr />
-            <li>
-              <Link to="/iframes">IFRAMES</Link>
-            </li>
-            <hr />
-            <li>
-              <Link to="/loader">LOADER</Link>
-            </li>
-            <hr />
-            <li>
-              <Link to="/loadertwo">LOADER TWO</Link>
-            </li>
-            <hr />
-            <li>
-              <Link to="/loginportal">LOGIN PORTAL TEST</Link>
-            </li>
-            <hr />
-            <li>
-              <Link to="/mousemovement">MOUSE MOVEMENT</Link>
-            </li>
-            <hr />
-            <li>
-              <Link to="/popupalerts">POP UPS & ALERTS</Link>
-            </li>
-            <hr />
-            <li>
-              <Link to="/predictivesearch">PREDICTIVE SEARCH</Link>
-            </li>
-            <hr />
-            <li>
-              <Link to="/tables">TABLES</Link>
-            </li>
-            <hr />
-            <li>
-              <Link to="/teststore">TEST STORE</Link>
-            </li>
-            <hr />
-            <li>
-              <Link to="/aboutme">ABOUT ME</Link>
-            </li>
-            <hr />
-            <li>
-              <p className="leftPara">Pratham-Selenium All Rights Reserved</p>
-            </li>
+    <div className="min-h-screen bg-gray-100">
+      <h1 className="text-3xl font-bold text-center py-3 text-blue-700">Selenium TestLab: Exploring Automated Testing Realms</h1>
+      <div className="flex">
+        {/* Sidebar Navigation */}
+        <aside className="w-64 bg-white shadow-md border-r p-4 h-screen overflow-y-auto">
+          <h2 className="text-xl font-bold mb-4">Navigation Menu</h2>
+          <ul className="space-y-2">
+            {[
+              { path: "/", label: "HOMEPAGE" },
+              { path: "/accordion", label: "ACCORDION" },
+              { path: "/actions", label: "ACTIONS" },
+              { path: "/browsertabs", label: "BROWSER TABS" },
+              { path: "/buttons", label: "BUTTONS" },
+              { path: "/nestedxpath", label: "NESTED XPATH" },
+              { path: "/familytree", label: "FAMILY TREE" },
+              { path: "/calculator", label: "CALCULATOR" },
+              { path: "/contactus", label: "CONTACT US FORM TEST" },
+              { path: "/datepicker", label: "DATE PICKER" },
+              { path: "/dropdown", label: "DROPDOWN CHECKBOX RADIO" },
+              { path: "/fileupload", label: "FILE UPLOAD" },
+              { path: "/hiddenelements", label: "HIDDEN ELEMENTS" },
+              { path: "/iframes", label: "IFRAMES" },
+              { path: "/loader", label: "LOADER" },
+              { path: "/loadertwo", label: "LOADER TWO" },
+              { path: "/loginportal", label: "LOGIN PORTAL TEST" },
+              { path: "/mousemovement", label: "MOUSE MOVEMENT" },
+              { path: "/popupalerts", label: "POP UPS & ALERTS" },
+              { path: "/predictivesearch", label: "PREDICTIVE SEARCH" },
+              { path: "/tables", label: "TABLES" },
+              { path: "/teststore", label: "TEST STORE" },
+            ].map((item) => (
+              <li key={item.path}>
+                <Link to={item.path} className="block py-2 px-3 bg-gray-200 hover:bg-blue-500 hover:text-white rounded-md transition">
+                  {item.label}
+                </Link>
+              </li>
+            ))}
           </ul>
-        </div>
-        <div style={centerBoxStyle}>
+          <p className="mt-6 text-sm text-center text-gray-500">Pratham-Selenium All Rights Reserved</p>
+        </aside>
+
+        {/* Main Content */}
+        <main className="flex-1 p-6 bg-white shadow-md rounded-lg m-4">
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/actions" element={<DragAction />} />
@@ -157,34 +96,10 @@ function MainPage() {
             <Route path="/loginportal" element={<LoginForm setLoggedInUser={setLoggedInUser} />} />
             <Route path="/logout" element={<LogoutPage loggedInUser={loggedInUser} />} />
           </Routes>
-        </div>
+        </main>
       </div>
     </div>
   );
 }
-
-const pageContainerStyle = {
-  display: "flex",
-  justifyContent: "space-between",
-  alignItems: "flex-start",
-  marginTop: "20px",
-};
-
-const leftBoxStyle = {
-  border: "2px solid #f56a6a",
-  padding: "20px",
-  marginLeft: "20px",
-  width: "200px",
-  boxShadow: "0 10px 20px rgba(0, 0, 0, 0.3)",
-};
-
-const centerBoxStyle = {
-  border: "2px solid #f56a6a",
-  padding: "10px",
-  flex: "1",
-  marginLeft: "20px",
-  marginRight: "20px",
-  boxShadow: "0 10px 20px rgba(0, 0, 0, 0.3)",
-};
 
 export default MainPage;
