@@ -1,160 +1,140 @@
 import React, { useState } from "react";
 import { Toaster, toast } from "react-hot-toast";
-import "./styles.css"; // Import CSS for styling
 import { fields } from "../api/data";
 
 const DropDown = () => {
-  const initialState = [
+  const [selectedOption, setSelectedOption] = useState("");
+  const [checkboxes, setCheckboxes] = useState([
     { id: 1, label: "Checkbox 1", checked: false },
     { id: 2, label: "Checkbox 2", checked: false },
     { id: 3, label: "Checkbox 3", checked: false },
-  ];
-
-  const [selectedOption, setSelectedOption] = useState("");
-  const [checkboxes, setCheckboxes] = useState(initialState);
+  ]);
   const [dropSelected, setDropSelected] = useState("");
   const [activeField, setActiveField] = useState("");
   const [showSubMenu, setShowSubMenu] = useState(false);
-  const [selectedSubMenu, setSelectedSubMenu] = useState("");
 
   const handleOptionChange = (event) => {
-    const selectedValue = event.target.value;
-    setSelectedOption(selectedValue);
-    toast.success(`Radio ${selectedValue} clicked!`);
+    setSelectedOption(event.target.value);
+    toast.success(`Selected: ${event.target.value}`);
   };
 
   const handleDropOptionChange = (event) => {
-    const dropSelected = event.target.value;
-    setDropSelected(dropSelected);
-    toast.success(`DropMenu ${dropSelected} clicked!`);
+    setDropSelected(event.target.value);
+    toast.success(`Dropdown: ${event.target.value}`);
   };
 
-  const handleCheckboxChange = (id, label, checked) => {
-    const updatedCheckboxes = checkboxes.map((checkbox) => (checkbox.id === id ? { ...checkbox, checked: !checkbox.checked } : checkbox));
-    setCheckboxes(updatedCheckboxes);
-    if (!checked) {
-      toast.success(`${label}" selected!`);
-    } else {
-      toast.success(`${label}" unselected!`);
-    }
+  const handleCheckboxChange = (id) => {
+    setCheckboxes((prev) => prev.map((checkbox) => (checkbox.id === id ? { ...checkbox, checked: !checkbox.checked } : checkbox)));
   };
 
-  const handleFieldHover = (field, subMenu) => {
+  const handleFieldHover = (field) => {
     setActiveField(field);
-    setSelectedSubMenu(subMenu);
     setShowSubMenu(true);
   };
 
   const handleFieldLeave = () => {
-    setActiveField("");
     setShowSubMenu(false);
   };
 
-  const handleSubMenuClick = (subMenu) => {
-    setSelectedSubMenu(subMenu);
+  const handleSubMenuClick = (subItem) => {
+    setActiveField(subItem);
     setShowSubMenu(false);
-    toast.success(`Selected submenu: ${subMenu}`);
+    toast.success(`Selected: ${subItem}`);
   };
 
   return (
-    <div>
-      <div className="actionsContainer">
-        <div className="actionContent headerStyle">
-          <h1>Dropdown Menus, Radio Buttons & Checkboxes</h1>
-          <p>
-            Use this webpage to interact with dropdown menus, radio buttons and checboxes. Try to instruct your Selenium tests to interact
-            with these elements.
-          </p>
-          <div className="popupButtonsContainer">
-            {/*  */}
-            <div className="actionButtonGroup">
-              <h2>Radio Buttons</h2>
-              <div>
-                <p>Select an Option</p>
-                <div>
-                  <label className="label">
-                    <input type="radio" value="option1" checked={selectedOption === "option1"} onChange={handleOptionChange} />
-                    Option 1
-                  </label>
-                </div>
-                <div>
-                  <label className="label">
-                    <input type="radio" value="option2" checked={selectedOption === "option2"} onChange={handleOptionChange} />
-                    Option 2
-                  </label>
-                </div>
-                <div>
-                  <label className="label">
-                    <input type="radio" value="option3" checked={selectedOption === "option3"} onChange={handleOptionChange} />
-                    Option 3
-                  </label>
-                </div>
-              </div>
-            </div>
-            {/*  */}
-            <div className="actionButtonGroup">
-              <h2>Checkboxes</h2>
-              <p>Test the checkbox options, below:</p>
-              <div className="checkboxContainer">
-                {checkboxes.map((checkbox) => (
-                  <label key={checkbox.id} className="checkboxLabel">
-                    <input
-                      type="checkbox"
-                      checked={checkbox.checked}
-                      onChange={() => handleCheckboxChange(checkbox.id, checkbox.label, checkbox.checked)}
-                    />
-                    {checkbox.label}
-                  </label>
-                ))}
-              </div>
-            </div>
-            <div className="actionButtonGroup">
-              <div>
-                <h2>Select an Option</h2>
-                <select value={dropSelected} onChange={handleDropOptionChange}>
-                  <option value="">Select</option>
-                  <option value="option 1">Option 1</option>
-                  <option value="option 2">Option 2</option>
-                  <option value="option 3">Option 3</option>
-                  <option value="option 4">Option 4</option>
-                  <option value="option 5">Option 5</option>
-                </select>
-                <p>Selected Option: {dropSelected}</p>
-              </div>
-            </div>
-          </div>
-          <div className="popupButtonsContainer">
-            <div className="actionButtonGroup">
-              <h2>Navigation Menu</h2>
-              <p>Test the navigation menu, below:</p>
-              <input type="text" value={selectedSubMenu} readOnly />
-              <nav>
-                <ul className="headerMenu">
-                  {fields.map((field, index) => (
-                    <li key={index} onMouseEnter={() => handleFieldHover(field.name, field.subMenu)} onMouseLeave={handleFieldLeave}>
-                      {field.name}
-                      {activeField === field.name && showSubMenu && (
-                        <ul className="subMenu">
-                          {field.subMenu.map((item, subIndex) => (
-                            <li key={subIndex} onClick={() => handleSubMenuClick(item)}>
-                              {item}
-                            </li>
-                          ))}
-                        </ul>
-                      )}
-                    </li>
-                  ))}
-                </ul>
-              </nav>
-            </div>
-            <div className="actionButtonGroup">
-              <h2>Demo Box</h2>
-              <p>Demo Para</p>
-            </div>
-          </div>
+    <div className="p-6">
+      <h1 className="text-2xl font-bold text-center mb-4">Dropdowns, Radios & Checkboxes</h1>
+
+      <div className="grid grid-cols-3 gap-6 mb-6">
+        {/* Radio Buttons */}
+        <div className="border p-4 rounded-lg shadow-md">
+          <h2 className="font-semibold text-lg">Radio Buttons</h2>
+          <p className="mb-2">Select an Option:</p>
+          {["Option 1", "Option 2", "Option 3"].map((option, idx) => (
+            <label key={idx} className="flex items-center gap-2 cursor-pointer">
+              <input
+                type="radio"
+                value={option.toLowerCase()}
+                checked={selectedOption === option.toLowerCase()}
+                onChange={handleOptionChange}
+              />
+              {option}
+            </label>
+          ))}
         </div>
-        <Toaster position="top-center" reverseOrder={false} />
+
+        {/* Checkboxes */}
+        <div className="border p-4 rounded-lg shadow-md">
+          <h2 className="font-semibold text-lg">Checkboxes</h2>
+          <p className="mb-2">Select checkboxes:</p>
+          {checkboxes.map(({ id, label, checked }) => (
+            <label key={id} className="flex items-center gap-2 cursor-pointer">
+              <input type="checkbox" checked={checked} onChange={() => handleCheckboxChange(id)} />
+              {label}
+            </label>
+          ))}
+        </div>
+
+        {/* Dropdown Menu */}
+        <div className="border p-4 rounded-lg shadow-md">
+          <h2 className="font-semibold text-lg">Dropdown</h2>
+          <p className="mb-2">Choose an option:</p>
+          <select className="border p-2 w-full" value={dropSelected} onChange={handleDropOptionChange}>
+            <option value="">Select</option>
+            {[1, 2, 3, 4, 5].map((num) => (
+              <option key={num} value={`option ${num}`}>
+                Option {num}
+              </option>
+            ))}
+          </select>
+          {dropSelected && <p className="mt-2">Selected: {dropSelected}</p>}
+        </div>
       </div>
+
+      {/* Bottom Row */}
+      <div className="grid grid-cols-3 gap-6">
+        {/* Navigation Menu */}
+        <div className="border p-4 rounded-lg shadow-md relative">
+          <h2 className="font-semibold text-lg">Navigation Menu</h2>
+          <input type="text" className="border p-2 w-full mt-2" readOnly value={activeField} />
+
+          <ul className="mt-2">
+            {fields.map((field, index) => (
+              <li
+                key={index}
+                className="hover:bg-gray-200 p-2 cursor-pointer relative"
+                onMouseEnter={() => handleFieldHover(field.name)}
+                onMouseLeave={handleFieldLeave}>
+                {field.name}
+                {/* Sub-menu */}
+                {showSubMenu && activeField === field.name && (
+                  <ul className="absolute left-full top-0 bg-gray-100 p-2 rounded shadow-lg">
+                    {field.subMenu.map((item, subIndex) => (
+                      <li key={subIndex} className="hover:text-blue-500 cursor-pointer p-2" onClick={() => handleSubMenuClick(item)}>
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        {/* Demo Box */}
+        <div className="border p-4 rounded-lg shadow-md">
+          <h2 className="font-semibold text-lg">Demo Box</h2>
+          <p className="text-gray-600">Demo content goes here.</p>
+        </div>
+
+        {/* Empty Placeholder (Optional) */}
+        <div className="border p-4 rounded-lg shadow-md flex items-center justify-center">
+          <p className="text-gray-400">Empty Slot</p>
+        </div>
+      </div>
+
+      <Toaster position="top-center" />
     </div>
   );
 };

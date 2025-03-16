@@ -1,82 +1,74 @@
 import React, { useState } from "react";
 
 const DatePicker = () => {
-  // const [selectedDate, setSelectedDate] = useState(new Date());
   const [selectedDateTime, setSelectedDateTime] = useState("");
   const [startDate, setStartDate] = useState("");
   const [endDate, setEndDate] = useState("");
-
-  const handleDateTimeChange = (event) => {
-    setSelectedDateTime(event.target.value);
-  };
-
-  const handleStartDateChange = (event) => {
-    setStartDate(event.target.value);
-  };
-
-  const handleEndDateChange = (event) => {
-    setEndDate(event.target.value);
-  };
-
-  const formatDate = (dateTimeString) => {
-    if (!dateTimeString) return ""; // handle empty string case
-    const date = new Date(dateTimeString);
-    if (isNaN(date.getTime())) {
-      return "Invalid Date";
-    }
-    return date.toLocaleDateString() + " " + date.toLocaleTimeString();
-  };
-
   const [selectedTime, setSelectedTime] = useState("");
 
-  const handleTimeChange = (event) => {
-    setSelectedTime(event.target.value);
+  const formatDate = (dateTimeString) => {
+    if (!dateTimeString) return "";
+    const date = new Date(dateTimeString);
+    return isNaN(date.getTime()) ? "Invalid Date" : date.toLocaleString();
   };
 
   return (
-    <div className="actionsContainer">
-      <div className="actionContent headerStyle">
-        <h1>Date Picker Testing</h1>
-        <p>On this page you can run various tests against calendars using date pickers, date range and time selection.</p>
-        <div className="popupButtonsContainer">
-          <div className="actionButtonGroup">
-            <h2>Basic Date Select()</h2>
-            <div>
-              <input className="datetime-para" type="datetime-local" value={selectedDateTime} onChange={handleDateTimeChange} />
-              <p className="date-para">
-                <strong>DateTime: </strong>
-                {formatDate(selectedDateTime)}
-              </p>
-            </div>
-          </div>
-          <div className="actionButtonGroup">
-            <h2>Basic Date Select()</h2>
-            <div>
-              <label htmlFor="start" className="date-label">
-                <strong>Start Date:</strong>
-              </label>
-              <input type="date" id="start" value={startDate} onChange={handleStartDateChange} />
+    <div className="p-6 max-w-lg mx-auto bg-white shadow-lg rounded-lg">
+      <h1 className="text-2xl font-bold text-center mb-4">Date Picker Testing</h1>
+      <p className="text-center text-gray-600 mb-6">
+        Run various tests against calendars using date pickers, date range, and time selection.
+      </p>
 
-              <label htmlFor="end" className="date-label">
-                <strong>End Date:</strong>
-              </label>
-              <input type="date" id="end" value={endDate} onChange={handleEndDateChange} />
-              <p className="date-para">
-                <strong>Range: </strong>
-                {startDate} - {endDate}
-              </p>
-            </div>
-          </div>
-          <div className="actionButtonGroup">
-            <h2>Select Time Picker</h2>
+      <div className="space-y-6">
+        {/* DateTime Picker */}
+        <div>
+          <h2 className="text-lg font-semibold">Basic Date Select()</h2>
+          <input
+            className="w-full p-2 mt-2 border rounded-md"
+            type="datetime-local"
+            value={selectedDateTime}
+            onChange={(e) => setSelectedDateTime(e.target.value)}
+          />
+          <p className="mt-2 text-gray-700">
+            <strong>DateTime: </strong> {formatDate(selectedDateTime)}
+          </p>
+        </div>
+
+        {/* Date Range Picker */}
+        <div>
+          <h2 className="text-lg font-semibold">Date Range Picker</h2>
+          <div className="flex flex-col space-y-2 md:flex-row md:space-x-4 md:space-y-0">
             <div>
-              <input type="time" value={selectedTime} onChange={handleTimeChange} />
-              <p className="date-para">
-                <strong>Selected time: </strong>
-                {selectedTime}
-              </p>
+              <label className="block font-medium">Start Date:</label>
+              <input
+                type="date"
+                className="w-full p-2 border rounded-md"
+                value={startDate}
+                onChange={(e) => setStartDate(e.target.value)}
+              />
+            </div>
+            <div>
+              <label className="block font-medium">End Date:</label>
+              <input type="date" className="w-full p-2 border rounded-md" value={endDate} onChange={(e) => setEndDate(e.target.value)} />
             </div>
           </div>
+          <p className="mt-2 text-gray-700">
+            <strong>Range: </strong> {startDate} - {endDate}
+          </p>
+        </div>
+
+        {/* Time Picker */}
+        <div>
+          <h2 className="text-lg font-semibold">Select Time Picker</h2>
+          <input
+            type="time"
+            className="w-full p-2 mt-2 border rounded-md"
+            value={selectedTime}
+            onChange={(e) => setSelectedTime(e.target.value)}
+          />
+          <p className="mt-2 text-gray-700">
+            <strong>Selected time: </strong> {selectedTime}
+          </p>
         </div>
       </div>
     </div>
