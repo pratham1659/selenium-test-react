@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 import { Link, Routes, Route } from "react-router-dom";
 import Home from "../components/Home";
-import Calculator from "../components/Calculator";
-import Accordion from "../components/Accordian";
 import PopupAlert from "../components/PopupAlert";
 import FileUpload from "../components/FileUpload";
 import DragAction from "../components/DragAction";
@@ -29,21 +27,19 @@ function MainPage() {
 
   return (
     <div className="min-h-screen bg-gray-100">
-      <h1 className="text-3xl font-bold text-center py-3 text-blue-700">Selenium TestLab: Exploring Automated Testing Realms</h1>
+      <h1 className="text-3xl font-bold text-center py-4 text-blue-700">Selenium TestLab: Exploring Automated Testing Realms</h1>
       <div className="flex">
         {/* Sidebar Navigation */}
         <aside className="w-64 bg-white shadow-md border-r p-4 h-screen overflow-y-auto">
-          <h2 className="text-xl font-bold mb-4">Navigation Menu</h2>
+          <h2 className="text-xl font-bold mb-2">Navigation Menu</h2>
           <ul className="space-y-2">
             {[
               { path: "/", label: "HOMEPAGE" },
-              { path: "/accordion", label: "ACCORDION" },
               { path: "/actions", label: "ACTIONS" },
               { path: "/browsertabs", label: "BROWSER TABS" },
               { path: "/buttons", label: "BUTTONS" },
               { path: "/nestedxpath", label: "NESTED XPATH" },
               { path: "/familytree", label: "FAMILY TREE" },
-              { path: "/calculator", label: "CALCULATOR" },
               { path: "/contactus", label: "CONTACT US FORM TEST" },
               { path: "/datepicker", label: "DATE PICKER" },
               { path: "/dropdown", label: "DROPDOWN CHECKBOX RADIO" },
@@ -70,7 +66,7 @@ function MainPage() {
         </aside>
 
         {/* Main Content */}
-        <main className="flex-1 p-6 bg-white shadow-md rounded-lg m-4">
+        <main className="flex-1 p-6 bg-white shadow-md rounded-lg m-0">
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/actions" element={<DragAction />} />
@@ -84,8 +80,6 @@ function MainPage() {
             <Route path="/iframes" element={<Frame />} />
             <Route path="/popupalerts" element={<PopupAlert />} />
             <Route path="/predictivesearch" element={<Predictive />} />
-            <Route path="/accordion" element={<Accordion />} />
-            <Route path="/calculator" element={<Calculator />} />
             <Route path="/contactus" element={<ContactUs />} />
             <Route path="/hiddenelements" element={<HiddenText />} />
             <Route path="/loader" element={<LoaderJs />} />
