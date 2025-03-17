@@ -29,11 +29,44 @@ const PopupAlert = () => {
             <h2 className="text-xl font-semibold text-gray-700">Alert Testing</h2>
             <p className="text-gray-600 mt-2">Click a button to trigger or dismiss an alert:</p>
             <div className="mt-4 flex flex-col gap-3">
+              {/* Simple Alert */}
+              <button
+                className="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition"
+                onClick={() => alert("This is a simple alert!")}>
+                Show Alert
+              </button>
+
+              {/* Confirmation Alert */}
               <button
                 className="w-full bg-green-600 text-white py-2 rounded-lg hover:bg-green-700 transition"
-                onClick={() => alert("Alert Button clicked!")}>
-                Trigger Alert
+                onClick={() => {
+                  // eslint-disable-next-line no-alert, no-restricted-globals
+                  const userConfirmed = confirm("Are you sure you want to proceed?");
+
+                  if (userConfirmed) {
+                    alert("User clicked OK!");
+                  } else {
+                    alert("User clicked Cancel!");
+                  }
+                }}>
+                Show Confirm Alert
               </button>
+
+              {/* Prompt Alert */}
+              <button
+                className="w-full bg-yellow-600 text-white py-2 rounded-lg hover:bg-yellow-700 transition"
+                onClick={() => {
+                  const userInput = prompt("Enter your name:");
+                  if (userInput) {
+                    alert(`Hello, ${userInput}!`);
+                  } else {
+                    alert("No name entered.");
+                  }
+                }}>
+                Show Prompt Alert
+              </button>
+
+              {/* Dismiss Alert */}
               <button
                 className="w-full bg-red-600 text-white py-2 rounded-lg hover:bg-red-700 transition"
                 onClick={() => alert("Alert dismissed!")}
