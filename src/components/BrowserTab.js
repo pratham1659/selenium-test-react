@@ -2,7 +2,7 @@ import React from "react";
 
 const BrowserTab = () => {
   const openNewTab = () => {
-    window.open("https://www.google.com/", "_blank", "noopener,noreferrer");
+    window.open("https://selenium-test-react.vercel.app/", "_blank", "noopener,noreferrer");
   };
 
   return (
