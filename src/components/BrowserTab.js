@@ -6,7 +6,7 @@ const BrowserTab = () => {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center h-screen p-6 bg-gray-100 text-center">
+    <div className="flex flex-col items-center justify-center h-screen p-6 bg-gray-100 text-center" id="btndiv">
       <h2 className="text-2xl font-semibold text-blue-700 mb-4">Browser Tabs</h2>
       <p className="text-gray-700 max-w-xl mb-4">
         Sometimes we need to test webpages that reside in a different tab. Use this page to click the button below, which will open a
