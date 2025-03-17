@@ -29,7 +29,7 @@ function MainPage() {
       <h1 className="text-3xl font-bold text-center py-4 text-blue-700">Selenium TestLab: Exploring Automated Testing Realms</h1>
       <div className="flex">
         {/* Sidebar Navigation */}
-        <aside className="w-64 bg-white shadow-md border-r p-3 h-screen overflow-y-auto">
+        <aside className="w-64 bg-white shadow-md border-r p-6 h-screen overflow-y-auto">
           <h2 className="text-xl font-bold mb-2">Navigation Menu</h2>
           <ul className="space-y-2">
             {[
