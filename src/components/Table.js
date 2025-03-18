@@ -54,7 +54,7 @@ const Table = () => {
 
       {/* Student Data Table */}
       <div className="overflow-x-auto">
-        <table className="w-full border-collapse border border-gray-300 rounded-lg shadow-md">
+        <table id="mytable" className="w-full border-collapse border border-gray-300 rounded-lg shadow-md">
           <thead className="bg-blue-600 text-white">
             <tr>
               <th className="p-3 border border-gray-300">
