@@ -55,7 +55,11 @@ const Frame = () => {
       {/* Quill Editor iFrame */}
       <div className="w-full max-w-4xl p-4 bg-white shadow-lg rounded-lg">
         <h2 className="text-xl font-semibold mb-4 text-center">Quill Editor Inside an Iframe</h2>
-        <iframe ref={iframeRef} className="w-full h-[350px] border rounded-lg shadow-sm" title="quill-editor-iframe"></iframe>
+        <iframe
+          ref={iframeRef}
+          id="iframequill"
+          className="w-full h-[350px] border rounded-lg shadow-sm"
+          title="quill-editor-iframe"></iframe>
       </div>
     </div>
   );
