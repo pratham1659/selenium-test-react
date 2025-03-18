@@ -45,8 +45,8 @@ function Buttons() {
   };
 
   return (
-    <div className="p-6 space-y-6">
-      <h2 className="text-2xl font-bold text-center">Testing Buttons</h2>
+    <div className="p-6 space-y-6 items-center">
+      <h2 className="text-2xl text-center font-semibold text-blue-700 mb-4">Testing Buttons</h2>
       <p className="text-center text-gray-600">Attempt to click the buttons using the instructions below.</p>
 
       <div className="grid grid-cols-2 gap-6">
