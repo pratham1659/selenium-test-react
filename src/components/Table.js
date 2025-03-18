@@ -9,7 +9,8 @@ const Table = () => {
   const rowsPerPage = 5;
 
   // Calculate total pages
-  const totalPages = Math.ceil(studentData.length / rowsPerPage);
+  const totalResults = studentData.length;
+  const totalPages = Math.ceil(totalResults / rowsPerPage);
 
   // Get current rows for pagination
   const indexOfLastRow = currentPage * rowsPerPage;
@@ -36,6 +37,12 @@ const Table = () => {
   return (
     <div className="p-6 max-w-4xl mx-auto">
       <h1 className="text-2xl font-bold text-center mb-4">Table Testing</h1>
+
+      {/* Display Total Results and Total Pages */}
+      <div className="text-center mb-4 text-gray-700">
+        <p className="text-lg font-semibold">Total Results: {totalResults}</p>
+        <p className="text-md">Total Pages: {totalPages}</p>
+      </div>
 
       {/* Selected Data */}
       <div className="my-4 p-4 bg-gray-100 rounded-md border border-gray-300">
