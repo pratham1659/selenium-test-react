@@ -88,7 +88,7 @@ const Table = () => {
       </div>
 
       {/* Pagination with Numbers and Arrows */}
-      <div className="flex justify-center items-center mt-4 space-x-2">
+      <div id="pagination" className="flex justify-center items-center mt-4 space-x-2">
         <button
           className={`px-3 py-1 bg-gray-300 rounded ${currentPage === 1 ? "opacity-50 cursor-not-allowed" : "hover:bg-gray-400"}`}
           onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
