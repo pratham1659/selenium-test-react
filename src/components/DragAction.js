@@ -1,13 +1,18 @@
 import React, { useState } from "react";
-import { Toaster, toast } from "react-hot-toast";
 
 const DragAction = () => {
+  const [messages, setMessages] = useState(["Welcome to Action Testing!"]);
   const [message, setMessage] = useState("Click and hold");
   const [doubleClickMessage, setDoubleClickMessage] = useState("Double click here");
   const [shiftClickMessage, setShiftClickMessage] = useState("Shift + Mouse Hold");
+  const [rightClickMessage, setRightClickMessage] = useState("Right-click here");
   const [isMouseDown, setIsMouseDown] = useState(false);
   const [isGreen, setIsGreen] = useState(false);
   const [isRed, setIsRed] = useState(false);
+
+  const addMessage = (newMessage) => {
+    setMessages((prev) => [newMessage, ...prev]);
+  };
 
   const handleDragStart = (e) => {
     e.dataTransfer.setData("text/plain", e.target.id);
@@ -21,7 +26,7 @@ const DragAction = () => {
 
     if (targetBox && !targetBox.contains(draggableElement)) {
       targetBox.appendChild(draggableElement);
-      toast.success("Element moved!");
+      addMessage("Element moved!");
     }
   };
 
@@ -38,6 +43,8 @@ const DragAction = () => {
   const handleDoubleClick = () => {
     setDoubleClickMessage("Well done!");
     setIsGreen(true);
+    addMessage("Double-click success!");
+
     setTimeout(() => {
       setDoubleClickMessage("Double click here");
       setIsGreen(false);
@@ -48,9 +55,11 @@ const DragAction = () => {
     if (e.shiftKey) {
       setShiftClickMessage("Good job!");
       setIsRed(false);
+      addMessage("Shift + Click success!");
     } else {
       setShiftClickMessage("Try again with Shift key!");
       setIsRed(true);
+      addMessage("Shift key was not held!");
     }
     setTimeout(() => {
       setShiftClickMessage("Shift + Mouse Hold");
@@ -58,14 +67,34 @@ const DragAction = () => {
     }, 5000);
   };
 
+  const handleRightClick = (e) => {
+    e.preventDefault();
+    setRightClickMessage("Right-click detected!");
+    addMessage("Right-click action performed!");
+
+    setTimeout(() => {
+      setRightClickMessage("Right-click here");
+    }, 5000);
+  };
+
   return (
-    <div className="flex flex-col items-center gap-8 p-6">
-      <h2 className="text-2xl font-bold">Action Testing</h2>
+    <div className="flex flex-col items-center gap-8 p-6 min-h-screen overflow-auto">
+      {/* Message Section */}
+      <div className="bg-gray-300 p-4 w-full max-w-3xl rounded-lg shadow-md">
+        <h2 className="text-xl font-bold">Messages</h2>
+        <div className="mt-2 h-24 overflow-y-auto bg-white p-2 rounded border border-gray-400 text-sm">
+          {messages.map((msg, index) => (
+            <p key={index} className="text-gray-800">
+              {msg}
+            </p>
+          ))}
+        </div>
+      </div>
 
       {/* Top Two Boxes */}
       <div className="grid grid-cols-2 gap-6 w-full max-w-4xl">
         {/* Drag & Drop Test */}
-        <div className="bg-gray-200 p-4 rounded-lg shadow-md w-full max-w-4xl">
+        <div className="bg-gray-200 p-4 rounded-lg shadow-md">
           <h3 className="text-lg font-semibold">Drag & Drop Test</h3>
           <p className="text-sm text-gray-600">Drag the elements between the boxes:</p>
 
@@ -144,7 +173,16 @@ const DragAction = () => {
         </div>
       </div>
 
-      <Toaster position="top-center" reverseOrder={false} />
+      {/* Right Click Test */}
+      <div className="bg-gray-200 p-4 rounded-lg shadow-md w-full max-w-4xl">
+        <h3 className="text-lg font-semibold">Right Click Test</h3>
+        <p className="text-sm text-gray-600">Right-click the box below:</p>
+        <div
+          className="mt-4 w-full h-16 flex items-center justify-center rounded text-white text-lg cursor-pointer bg-gray-500 transition-colors"
+          onContextMenu={handleRightClick}>
+          {rightClickMessage}
+        </div>
+      </div>
     </div>
   );
 };

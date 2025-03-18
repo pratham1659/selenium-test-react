@@ -12,6 +12,7 @@ const DropDown = () => {
   const [dropSelected, setDropSelected] = useState("");
   const [activeField, setActiveField] = useState("");
   const [showSubMenu, setShowSubMenu] = useState(false);
+  const [selectedDemoItem, setSelectedDemoItem] = useState("");
 
   const handleOptionChange = (event) => {
     setSelectedOption(event.target.value);
@@ -40,6 +41,11 @@ const DropDown = () => {
     setActiveField(subItem);
     setShowSubMenu(false);
     toast.success(`Selected: ${subItem}`);
+  };
+
+  const handleDemoItemClick = (item) => {
+    setSelectedDemoItem(item);
+    toast.success(`Picked: ${item}`);
   };
 
   return (
@@ -122,10 +128,22 @@ const DropDown = () => {
           </ul>
         </div>
 
-        {/* Demo Box */}
+        {/* Scrollable Demo Box */}
         <div className="border p-4 rounded-lg shadow-md">
-          <h2 className="font-semibold text-lg">Demo Box</h2>
-          <p className="text-gray-600">Demo content goes here.</p>
+          <h2 className="font-semibold text-lg">Scrollable Demo Box</h2>
+          <div className="border rounded-md h-40 overflow-y-auto p-2 mt-2">
+            <ul>
+              {Array.from({ length: 20 }, (_, i) => `Item ${i + 1}`).map((item, index) => (
+                <li
+                  key={index}
+                  className={`p-2 cursor-pointer ${selectedDemoItem === item ? "bg-blue-500 text-white" : "hover:bg-gray-200"}`}
+                  onClick={() => handleDemoItemClick(item)}>
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+          {selectedDemoItem && <p className="mt-2">Picked: {selectedDemoItem}</p>}
         </div>
 
         {/* Empty Placeholder (Optional) */}
