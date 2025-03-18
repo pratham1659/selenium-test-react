@@ -1,18 +1,3 @@
-export const faqs = [
-  {
-    question: "Accordion Item #1",
-    answer: "This is the first item accordion body.",
-  },
-  {
-    question: "Accordion Item #2",
-    answer: "This is the second item accordion body.",
-  },
-  {
-    question: "Accordion Item #3",
-    answer: "This is the third item accordion body.",
-  },
-];
-
 export const planets = [
   {
     category: "Giant planets",
@@ -57,6 +42,26 @@ export const studentData = [
   { id: 8, name: "Olivia Taylor", age: 21, grade: "B" },
   { id: 9, name: "Matthew White", age: 19, grade: "A" },
   { id: 10, name: "Sophia Martinez", age: 20, grade: "C" },
+  { id: 11, name: "James Anderson", age: 21, grade: "B" },
+  { id: 12, name: "Emma Thomas", age: 20, grade: "A" },
+  { id: 13, name: "Liam Roberts", age: 23, grade: "C" },
+  { id: 14, name: "Isabella Clark", age: 19, grade: "B" },
+  { id: 15, name: "Noah Hall", age: 22, grade: "A" },
+  { id: 16, name: "Mia Lewis", age: 21, grade: "C" },
+  { id: 17, name: "Ethan Walker", age: 20, grade: "B" },
+  { id: 18, name: "Ava Allen", age: 19, grade: "A" },
+  { id: 19, name: "Lucas Young", age: 23, grade: "B" },
+  { id: 20, name: "Charlotte King", age: 22, grade: "C" },
+  { id: 21, name: "Benjamin Scott", age: 21, grade: "A" },
+  { id: 22, name: "Amelia Green", age: 20, grade: "B" },
+  { id: 23, name: "William Adams", age: 19, grade: "C" },
+  { id: 24, name: "Harper Baker", age: 23, grade: "A" },
+  { id: 25, name: "Elijah Gonzalez", age: 22, grade: "B" },
+  { id: 26, name: "Abigail Nelson", age: 21, grade: "C" },
+  { id: 27, name: "Mason Carter", age: 20, grade: "A" },
+  { id: 28, name: "Evelyn Mitchell", age: 19, grade: "B" },
+  { id: 29, name: "Alexander Perez", age: 23, grade: "C" },
+  { id: 30, name: "Sofia Roberts", age: 22, grade: "A" },
 ];
 
 export const fields = [
