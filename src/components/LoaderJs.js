@@ -42,7 +42,7 @@ const LoaderJs = () => {
   const handleSubmit = () => toast.success("Button clicked!");
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 p-6 space-y-10">
+    <div className="flex flex-row items-center justify-center min-h-screen bg-gray-100 p-6 space-x-10">
       {/* Loader 1 */}
       <div className="bg-white p-6 rounded-lg shadow-md w-96 text-center">
         <h2 className="text-xl font-semibold text-blue-600">Loader One</h2>
