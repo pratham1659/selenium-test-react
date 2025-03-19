@@ -91,7 +91,7 @@ function LoginForm({ setLoggedInUser }) {
           </button>
 
           {/* Error message display */}
-          {invalidCredentials && <p className="text-red-500 text-sm text-center mt-2">Invalid username or password. Please try again.</p>}
+          {invalidCredentials && <p className="text-red-500 text-sm text-center mt-2">Invalid Credentials</p>}
         </form>
 
         {/* Logged-in User Display */}
