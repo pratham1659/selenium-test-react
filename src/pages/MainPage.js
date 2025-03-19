@@ -1,28 +1,16 @@
 import React, { useState } from "react";
 import { Link, Routes, Route } from "react-router-dom";
-import Home from "../components/Home";
-import PopupAlert from "../components/PopupAlert";
-import FileUpload from "../components/FileUpload";
-import DragAction from "../components/DragAction";
-import BrowserTab from "../components/BrowserTab";
-import MouseMove from "../components/MouseMove";
-import Buttons from "../components/Buttons";
-import Table from "../components/Table";
-import DropDown from "../components/DropDown";
-import DatePicker from "../components/DatePicker";
-import ContactUs from "../components/ContactUs";
+import routeConfig from "./routeConfig";
 import LoginForm from "../components/LoginForm";
 import LogoutPage from "../components/LogoutPage";
-import Frame from "../components/Frame";
-import TestStore from "../components/TestStore";
-import Predictive from "../components/Predictive";
-import LoaderJs from "../components/LoaderJs";
-import HiddenText from "../components/HiddenText";
-import NestedXpath from "../components/NestedXpath";
-import FamilyTree from "../components/FamilyTree";
+import TestStore from "./shop/TestStore";
+import ProductList from "./shop/ProductList";
 
 function MainPage() {
   const [loggedInUser, setLoggedInUser] = useState(null);
+  const [user, setUser] = useState(null);
+  const [searchTerm, setSearchTerm] = useState("");
+  const [selectedCategory, setSelectedCategory] = useState("all");
 
   return (
     <div className="min-h-screen flex flex-col">
@@ -41,27 +29,7 @@ function MainPage() {
           {/* Scrollable Nav */}
           <nav className="flex-1 overflow-y-auto p-6 pt-2 min-h-0">
             <ul className="space-y-2">
-              {[
-                { path: "/", label: "HOMEPAGE" },
-                { path: "/actions", label: "ACTIONS" },
-                { path: "/browsertabs", label: "BROWSER TABS" },
-                { path: "/buttons", label: "BUTTONS" },
-                { path: "/contactus", label: "CONTACT US FORM TEST" },
-                { path: "/loginportal", label: "LOGIN PORTAL TEST" },
-                { path: "/mousemovement", label: "MOUSE MOVEMENT" },
-                { path: "/popupalerts", label: "POP UPS & ALERTS" },
-                { path: "/predictivesearch", label: "PREDICTIVE SEARCH" },
-                { path: "/datepicker", label: "DATE PICKER" },
-                { path: "/tables", label: "TABLES" },
-                { path: "/dropdown", label: "DROPDOWN CHECKBOX RADIO" },
-                { path: "/fileupload", label: "FILE UPLOAD" },
-                { path: "/hiddenelements", label: "HIDDEN ELEMENTS" },
-                { path: "/iframes", label: "IFRAMES" },
-                { path: "/loader", label: "LOADER" },
-                { path: "/nestedxpath", label: "NESTED XPATH" },
-                { path: "/familytree", label: "FAMILY TREE" },
-                { path: "/teststore", label: "TEST STORE" },
-              ].map((item) => (
+              {routeConfig.map((item) => (
                 <li key={item.path}>
                   <Link
                     to={item.path}
@@ -79,26 +47,36 @@ function MainPage() {
         <main className="flex-1 flex flex-col overflow-auto bg-gray-50 p-4">
           <div className="flex-1 bg-white rounded-lg shadow-sm p-6">
             <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/actions" element={<DragAction />} />
-              <Route path="/browsertabs" element={<BrowserTab />} />
-              <Route path="/mousemovement" element={<MouseMove />} />
-              <Route path="/buttons" element={<Buttons />} />
-              <Route path="/dropdown" element={<DropDown />} />
-              <Route path="/tables" element={<Table />} />
-              <Route path="/datepicker" element={<DatePicker />} />
-              <Route path="/fileupload" element={<FileUpload />} />
-              <Route path="/iframes" element={<Frame />} />
-              <Route path="/popupalerts" element={<PopupAlert />} />
-              <Route path="/predictivesearch" element={<Predictive />} />
-              <Route path="/contactus" element={<ContactUs />} />
-              <Route path="/hiddenelements" element={<HiddenText />} />
-              <Route path="/loader" element={<LoaderJs />} />
-              <Route path="/teststore" element={<TestStore />} />
-              <Route path="/nestedxpath" element={<NestedXpath />} />
-              <Route path="/familytree" element={<FamilyTree />} />
-              <Route path="/loginportal" element={<LoginForm setLoggedInUser={setLoggedInUser} />} />
-              <Route path="/logout" element={<LogoutPage loggedInUser={loggedInUser} />} />
+              {routeConfig.map(({ path, element }) => (
+                <Route
+                  key={path}
+                  path={path}
+                  element={
+                    path === "/loginportal" ? (
+                      <LoginForm setLoggedInUser={setLoggedInUser} />
+                    ) : path === "/logout" ? (
+                      <LogoutPage loggedInUser={loggedInUser} />
+                    ) : (
+                      element
+                    )
+                  }
+                />
+              ))}
+              {/* TestStore now handles Navbar inside */}
+              <Route
+                path="/teststore"
+                element={
+                  <TestStore
+                    user={user}
+                    setUser={setUser}
+                    searchTerm={searchTerm}
+                    setSearchTerm={setSearchTerm}
+                    selectedCategory={selectedCategory}
+                    setSelectedCategory={setSelectedCategory}
+                  />
+                }>
+                <Route path="products/:id" element={<ProductList />} />
+              </Route>
             </Routes>
           </div>
         </main>

@@ -73,6 +73,42 @@ export const fields = [
   { name: "Food", subMenu: ["Pizza", "Burger", "Sushi", "Tacos"] },
 ];
 
+export const products = [
+  // Electronics
+  { id: 1, name: "Laptop", category: "electronics", price: 999 },
+  { id: 2, name: "Smartphone", category: "electronics", price: 699 },
+  { id: 3, name: "Headphones", category: "electronics", price: 149 },
+  { id: 4, name: "Smartwatch", category: "electronics", price: 199 },
+  { id: 5, name: "Gaming Console", category: "electronics", price: 499 },
+
+  // Clothing
+  { id: 6, name: "T-Shirt", category: "clothing", price: 29 },
+  { id: 7, name: "Jeans", category: "clothing", price: 59 },
+  { id: 8, name: "Hoodie", category: "clothing", price: 79 },
+  { id: 9, name: "Formal Shirt", category: "clothing", price: 49 },
+  { id: 10, name: "Jacket", category: "clothing", price: 119 },
+
+  // Footwear
+  { id: 11, name: "Sneakers", category: "footwear", price: 89 },
+  { id: 12, name: "Running Shoes", category: "footwear", price: 120 },
+  { id: 13, name: "Sandals", category: "footwear", price: 45 },
+  { id: 14, name: "Boots", category: "footwear", price: 150 },
+  { id: 15, name: "Loafers", category: "footwear", price: 99 },
+
+  // Home Appliances
+  { id: 16, name: "Microwave", category: "home_appliances", price: 199 },
+  { id: 17, name: "Vacuum Cleaner", category: "home_appliances", price: 249 },
+  { id: 18, name: "Air Conditioner", category: "home_appliances", price: 499 },
+  { id: 19, name: "Refrigerator", category: "home_appliances", price: 899 },
+  { id: 20, name: "Washing Machine", category: "home_appliances", price: 799 },
+
+  // Accessories
+  { id: 21, name: "Backpack", category: "accessories", price: 60 },
+  { id: 22, name: "Wristwatch", category: "accessories", price: 199 },
+  { id: 23, name: "Sunglasses", category: "accessories", price: 99 },
+  { id: 24, name: "Wallet", category: "accessories", price: 39 },
+];
+
 export const countries = [
   "Afghanistan",
   "Albania",
