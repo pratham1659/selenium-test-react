@@ -15,6 +15,7 @@ function LoginForm({ setLoggedInUser }) {
 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
+    setInvalidCredentials(false);
     setFormData((prevState) => ({
       ...prevState,
       [name]: type === "checkbox" ? checked : value,
@@ -34,6 +35,13 @@ function LoginForm({ setLoggedInUser }) {
           toast.success("Login successful!");
         }
       } else {
+        // Reset form fields and show error
+        setFormData((prev) => ({
+          ...prev,
+          username: "",
+          password: "",
+          rememberMe: false,
+        }));
         setInvalidCredentials(true);
       }
     } else {
