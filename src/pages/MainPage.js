@@ -25,50 +25,54 @@ function MainPage() {
   const [loggedInUser, setLoggedInUser] = useState(null);
 
   return (
-    <div className="min-h-screen bg-gray-100 flex flex-col">
-      <h1 className="text-3xl font-bold text-center py-4 text-blue-700 bg-white shadow-sm">
-        Selenium TestLab: Exploring Automated Testing Realms
-      </h1>
+    <div className="min-h-screen flex flex-col">
+      {/* Header */}
+      <header className="bg-white shadow-sm text-center py-4">
+        <h1 className="text-3xl font-bold text-blue-700">Selenium TestLab: Exploring Automated Testing Realms</h1>
+      </header>
+
       <div className="flex flex-1 overflow-hidden">
         {/* Sidebar Navigation */}
-        <aside className="w-64 bg-white shadow-md border-r flex flex-col h-full">
-          <div className="p-6 pb-4">
-            <h2 className="text-xl font-bold mb-4">Navigation Menu</h2>
-            <nav className="flex-1 overflow-y-auto">
-              <ul className="space-y-2">
-                {[
-                  { path: "/", label: "HOMEPAGE" },
-                  { path: "/actions", label: "ACTIONS" },
-                  { path: "/browsertabs", label: "BROWSER TABS" },
-                  { path: "/buttons", label: "BUTTONS" },
-                  { path: "/contactus", label: "CONTACT US FORM TEST" },
-                  { path: "/loginportal", label: "LOGIN PORTAL TEST" },
-                  { path: "/mousemovement", label: "MOUSE MOVEMENT" },
-                  { path: "/popupalerts", label: "POP UPS & ALERTS" },
-                  { path: "/predictivesearch", label: "PREDICTIVE SEARCH" },
-                  { path: "/datepicker", label: "DATE PICKER" },
-                  { path: "/tables", label: "TABLES" },
-                  { path: "/dropdown", label: "DROPDOWN CHECKBOX RADIO" },
-                  { path: "/fileupload", label: "FILE UPLOAD" },
-                  { path: "/hiddenelements", label: "HIDDEN ELEMENTS" },
-                  { path: "/iframes", label: "IFRAMES" },
-                  { path: "/loader", label: "LOADER" },
-                  { path: "/nestedxpath", label: "NESTED XPATH" },
-                  { path: "/familytree", label: "FAMILY TREE" },
-                  { path: "/teststore", label: "TEST STORE" },
-                ].map((item) => (
-                  <li key={item.path}>
-                    <Link
-                      to={item.path}
-                      className="block py-2 px-3 bg-gray-100 hover:bg-blue-500 hover:text-white rounded-md transition-colors
-                        text-sm font-medium text-gray-700">
-                      {item.label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </nav>
+        <aside className="w-64 bg-white shadow-md border-r flex flex-col overflow-hidden">
+          <div className="pt-2 pb-2 border-b">
+            <h2 className="text-xl font-bold text-center mb-2">Navigation Menu</h2>
           </div>
+
+          {/* Scrollable Nav */}
+          <nav className="flex-1 overflow-y-auto p-6 pt-2 min-h-0">
+            <ul className="space-y-2">
+              {[
+                { path: "/", label: "HOMEPAGE" },
+                { path: "/actions", label: "ACTIONS" },
+                { path: "/browsertabs", label: "BROWSER TABS" },
+                { path: "/buttons", label: "BUTTONS" },
+                { path: "/contactus", label: "CONTACT US FORM TEST" },
+                { path: "/loginportal", label: "LOGIN PORTAL TEST" },
+                { path: "/mousemovement", label: "MOUSE MOVEMENT" },
+                { path: "/popupalerts", label: "POP UPS & ALERTS" },
+                { path: "/predictivesearch", label: "PREDICTIVE SEARCH" },
+                { path: "/datepicker", label: "DATE PICKER" },
+                { path: "/tables", label: "TABLES" },
+                { path: "/dropdown", label: "DROPDOWN CHECKBOX RADIO" },
+                { path: "/fileupload", label: "FILE UPLOAD" },
+                { path: "/hiddenelements", label: "HIDDEN ELEMENTS" },
+                { path: "/iframes", label: "IFRAMES" },
+                { path: "/loader", label: "LOADER" },
+                { path: "/nestedxpath", label: "NESTED XPATH" },
+                { path: "/familytree", label: "FAMILY TREE" },
+                { path: "/teststore", label: "TEST STORE" },
+              ].map((item) => (
+                <li key={item.path}>
+                  <Link
+                    to={item.path}
+                    className="block py-2 px-3 bg-gray-100 hover:bg-blue-500 hover:text-white rounded-md transition-colors
+                        text-sm font-medium text-gray-700">
+                    {item.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </nav>
         </aside>
 
         {/* Main Content */}
@@ -99,12 +103,10 @@ function MainPage() {
           </div>
         </main>
       </div>
-      <footer className="bg-gradient-to-r from-blue-600 to-blue-800 text-white mt-auto">
-        <div className="max-w-7xl mx-auto px-4 py-4">
-          <div className="flex flex-col items-center justify-center w-full gap-2">
-            <p className="text-xs text-center sm:text-sm w-full">© {new Date().getFullYear()} Pratham-Selenium. All rights reserved.</p>
-          </div>
-        </div>
+
+      {/* Footer */}
+      <footer className="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-4 mt-auto">
+        <div className="text-center text-xs sm:text-sm">© {new Date().getFullYear()} Pratham-Selenium. All rights reserved.</div>
       </footer>
     </div>
   );
