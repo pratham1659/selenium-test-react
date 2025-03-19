@@ -1,11 +1,14 @@
 import React from "react";
 import "./App.css";
 import MainPage from "./pages/MainPage";
+import { CartProvider } from "./pages/shop/CartContext";
 
 function App() {
   return (
     <div className="App">
-      <MainPage />
+      <CartProvider>
+        <MainPage />
+      </CartProvider>
     </div>
   );
 }

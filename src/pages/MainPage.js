@@ -29,16 +29,18 @@ function MainPage() {
           {/* Scrollable Nav */}
           <nav className="flex-1 overflow-y-auto p-6 pt-2 min-h-0">
             <ul className="space-y-2">
-              {routeConfig.map((item) => (
-                <li key={item.path}>
-                  <Link
-                    to={item.path}
-                    className="block py-2 px-3 bg-gray-100 hover:bg-blue-500 hover:text-white rounded-md transition-colors
+              {routeConfig
+                .filter((item) => item.label !== "Logout")
+                .map((item) => (
+                  <li key={item.path}>
+                    <Link
+                      to={item.path}
+                      className="block py-2 px-3 bg-gray-100 hover:bg-blue-500 hover:text-white rounded-md transition-colors
                         text-sm font-medium text-gray-700">
-                    {item.label}
-                  </Link>
-                </li>
-              ))}
+                      {item.label}
+                    </Link>
+                  </li>
+                ))}
             </ul>
           </nav>
         </aside>

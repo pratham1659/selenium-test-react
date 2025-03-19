@@ -18,6 +18,7 @@ import NestedXpath from "../components/NestedXpath";
 import FamilyTree from "../components/FamilyTree";
 import LoginForm from "../components/LoginForm";
 import LogoutPage from "../components/LogoutPage";
+import Cart from "../pages/shop/Cart";
 
 const routeConfig = [
   { path: "/", label: "Homepage", element: <Home /> },
@@ -37,9 +38,10 @@ const routeConfig = [
   { path: "/loader", label: "Loader", element: <LoaderJs /> },
   { path: "/nestedxpath", label: "Nested XPath", element: <NestedXpath /> },
   { path: "/familytree", label: "Family Tree", element: <FamilyTree /> },
-  { path: "/teststore", label: "Test Store", element: <TestStore /> },
   { path: "/loginportal", label: "Login Portal", element: <LoginForm /> },
+  { path: "/teststore", label: "Test Store", element: <TestStore /> },
   { path: "/logout", label: "Logout", element: <LogoutPage /> },
+  { path: "/cart", label: "Cart", element: <Cart /> },
 ];
 
 export default routeConfig;
